@@ -1,0 +1,208 @@
+// dark color
+$dark-system-l0-color: #0c0c0c;
+$dark-app-l1-color: #181818;
+$dark-tile-l2-color: #242424;
+$dark-text-color: #f2f2f2;
+$dark-gray-color: #767676;
+$dark-link-blue-color: #33a3ff;
+$dark-green-color: #288964;
+$dark-yellow-color: #dcaf00;
+$dark-orange-color: #e66e19;
+$dark-red-color: #dc2d37;
+$dark-blue-color: #0082f0;
+$dark-purple-color: #8e45b0;
+// light color
+$light-system-l0-color: #0c0c0c;
+$light-app-l1-color: #e0e0e0;
+$light-tile-l2-color: #f2f2f2;
+$light-text-color: #242424;
+$light-gray-color: #767676;
+$light-link-blue-color: #33a3ff;
+$light-green-color: #34b07f;
+$light-yellow-color: #f2c618;
+$light-orange-color: #f78521;
+$light-red-color: #f52323;
+$light-blue-color: #0082f0;
+$light-purple-color: #a56ebe;
+
+$themes: (
+  chalk: (
+    system-l0-color: #0c0c0c,
+    app-l1-color: #e0e0e0,
+    tile-l2-color: #f2f2f2,
+    text-color: #303133,
+    gray-color: #767676,
+    link-blue-color: #33a3ff,
+    green-color: #67c23a,
+    yellow-color: #e6a23c,
+    orange-color: #f78521,
+    red-color: #f56c6c,
+    blue-color: #409eff,
+    purple-color: #a56ebe,
+    color-white: #fff,
+    color-black: #000,
+    color-primary: #409eff,
+    color-success: #67c23a,
+    color-warning: #e6a23c,
+    color-danger: #f56c6c,
+    color-info: #909399,
+    color-text-primary: #303133,
+    color-text-regular: #606266,
+    color-text-secondary: #909399,
+    color-text-placeholder: #c0c4cc,
+    background-color: #f5f7fa,
+    border-color-base: #dcdfe6,
+    border-color-light: #e4e7ed,
+    border-color-lighter: #ebeef5,
+    border-color-extra-light: #f2f6fc,
+    font-color-disabled-base: #bbb,
+    icon-color: #666,
+    checkbox-disabled-input-fill: #edf2fc,
+    select-multiple-input-color: #666,
+    select-dropdown-empty-color: #999,
+    message-background-color: #edf2fc,
+    cascader-menu-option-color-disabled: #999,
+    cascader-menu-option-empty-color: #666,
+    cascader-menu-group-color: #999,
+    cascader-menu-option-pinyin-color: #999,
+    tab-border-line: 1px solid #e4e4e4,
+    datepicker-inner-border-color: #e4e4e4,
+    datepicker-cell-hover-color: #fff,
+    carousel-arrow-background: rgba(31, 45, 61, 0.11),
+    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23)
+  ),
+  light: (
+    system-l0-color: #0c0c0c,
+    app-l1-color: #e0e0e0,
+    tile-l2-color: #f2f2f2,
+    text-color: #242424,
+    gray-color: #767676,
+    link-blue-color: #33a3ff,
+    green-color: #34b07f,
+    yellow-color: #f2c618,
+    orange-color: #f78521,
+    red-color: #f52323,
+    blue-color: #0082f0,
+    purple-color: #a56ebe,
+    color-white: #fff,
+    color-black: #000,
+    color-primary: $light-blue-color,
+    color-success: $light-green-color,
+    color-warning: $light-yellow-color,
+    color-danger: $light-red-color,
+    color-info: #909399,
+    color-text-primary: $light-text-color,
+    color-text-regular: #606266,
+    color-text-secondary: #909399,
+    color-text-placeholder: #c0c4cc,
+    background-color: #f5f7fa,
+    border-color-base: #dcdfe6,
+    border-color-light: #e4e7ed,
+    border-color-lighter: #ebeef5,
+    border-color-extra-light: #f2f6fc,
+    font-color-disabled-base: #bbb,
+    icon-color: #666,
+    checkbox-disabled-input-fill: #edf2fc,
+    select-multiple-input-color: #666,
+    select-dropdown-empty-color: #999,
+    message-background-color: #edf2fc,
+    cascader-menu-option-color-disabled: #999,
+    cascader-menu-option-empty-color: #666,
+    cascader-menu-group-color: #999,
+    cascader-menu-option-pinyin-color: #999,
+    tab-border-line: 1px solid #e4e4e4,
+    datepicker-inner-border-color: #e4e4e4,
+    datepicker-cell-hover-color: #fff,
+    carousel-arrow-background: rgba(31, 45, 61, 0.11),
+    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23)
+  ),
+  dark: (
+    system-l0-color: #0c0c0c,
+    app-l1-color: #181818,
+    tile-l2-color: #242424,
+    text-color: #f2f2f2,
+    gray-color: #767676,
+    link-blue-color: #33a3ff,
+    green-color: #288964,
+    yellow-color: #dcaf00,
+    orange-color: #e66e19,
+    red-color: #dc2d37,
+    blue-color: #0082f0,
+    purple-color: #8e45b0,
+    color-white: #fff,
+    color-black: #000,
+    color-primary: $dark-blue-color,
+    color-success: $dark-green-color,
+    color-warning: $dark-yellow-color,
+    color-danger: $dark-red-color,
+    color-info: #909399,
+    color-text-primary: $dark-text-color,
+    color-text-regular: #606266,
+    color-text-secondary: #909399,
+    color-text-placeholder: #c0c4cc,
+    background-color: $dark-tile-l2-color,
+    border-color-base: #4e4e4e,
+    border-color-light: $dark-gray-color,
+    border-color-lighter: lighten($dark-gray-color, 10%),
+    border-color-extra-light: lighten($dark-gray-color, 20%),
+    font-color-disabled-base: fade-out($dark-text-color, 0.6),
+    icon-color: $dark-text-color,
+    checkbox-disabled-input-fill: #edf2fc,
+    select-multiple-input-color: #666,
+    select-dropdown-empty-color: #999,
+    message-background-color: #edf2fc,
+    cascader-menu-option-color-disabled: #999,
+    cascader-menu-option-empty-color: #666,
+    cascader-menu-group-color: #999,
+    cascader-menu-option-pinyin-color: #999,
+    tab-border-line: 1px solid #e4e4e4,
+    datepicker-inner-border-color: #e4e4e4,
+    datepicker-cell-hover-color: #fff,
+    carousel-arrow-background: rgba(31, 45, 61, 0.11),
+    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23)
+  )
+);
+
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value
+          )
+        ) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@mixin themifySelf($themes: $themes) {
+  @each $theme, $map in $themes {
+    &.theme-#{$theme} {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value
+          )
+        ) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
