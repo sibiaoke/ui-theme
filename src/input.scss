@@ -310,7 +310,35 @@
       margin: -10px -20px;
     }
 
-    button.el-button,
+    button.el-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-right: -22px;
+      margin-left: -22px;
+
+      &.el-button--default {
+        @include themify($themes) {
+          border-color: themed('border-color-base');
+          background-color: themed('border-color-base');
+        }
+
+        &:hover,
+        &:focus {
+          @include themify($themes) {
+            color: $--color-black;
+            border-color: themed('color-text-primary');
+            background-color: themed('color-text-primary');
+          }
+        }
+
+        &:active {
+          @include themify($themes) {
+            color: $--color-black;
+            border-color: mix($--color-black, themed('button-default-border'), $--button-active-shade-percent);
+          }
+        }
+      }
+    }
     div.el-select .el-input__inner,
     div.el-select:hover .el-input__inner {
       @include themify($themes) {
