@@ -1,77 +1,365 @@
-// dark color
-$dark-system-l0-color: #0c0c0c;
-$dark-app-l1-color: #181818;
-$dark-tile-l2-color: #242424;
-$dark-text-color: #f2f2f2;
-$dark-gray-color: #767676;
-$dark-link-blue-color: #33a3ff;
-$dark-green-color: #288964;
-$dark-yellow-color: #dcaf00;
-$dark-orange-color: #e66e19;
-$dark-red-color: #dc2d37;
-$dark-blue-color: #0082f0;
-$dark-purple-color: #8e45b0;
-// light color
-$light-system-l0-color: #0c0c0c;
-$light-app-l1-color: #e0e0e0;
-$light-tile-l2-color: #f2f2f2;
-$light-text-color: #242424;
-$light-gray-color: #767676;
-$light-link-blue-color: #33a3ff;
-$light-green-color: #34b07f;
-$light-yellow-color: #f2c618;
-$light-orange-color: #f78521;
-$light-red-color: #f52323;
-$light-blue-color: #0082f0;
-$light-purple-color: #a56ebe;
+@import '../common/colors';
 
 $themes: (
   chalk: (
-    system-l0-color: #0c0c0c,
-    app-l1-color: #e0e0e0,
-    tile-l2-color: #f2f2f2,
-    text-color: #303133,
-    gray-color: #767676,
-    link-blue-color: #33a3ff,
-    green-color: #67c23a,
-    yellow-color: #e6a23c,
-    orange-color: #f78521,
-    red-color: #f56c6c,
-    blue-color: #409eff,
-    purple-color: #a56ebe,
-    color-white: #fff,
-    color-black: #000,
-    color-primary: #409eff,
-    color-success: #67c23a,
-    color-warning: #e6a23c,
-    color-danger: #f56c6c,
-    color-info: #909399,
-    color-text-primary: #303133,
-    color-text-regular: #606266,
-    color-text-secondary: #909399,
-    color-text-placeholder: #c0c4cc,
-    background-color: #f5f7fa,
-    border-color-base: #dcdfe6,
-    border-color-light: #e4e7ed,
-    border-color-lighter: #ebeef5,
-    border-color-extra-light: #f2f6fc,
-    font-color-disabled-base: #bbb,
-    icon-color: #666,
+    // base color
+    system-l0-color: $chalk-system-l0-color,
+    app-l1-color: $chalk-app-l1-color,
+    tile-l2-color: $chalk-tile-l2-color,
+    text-color: $chalk-text-color,
+    gray-color: $chalk-gray-color,
+    link-blue-color: $chalk-link-blue-color,
+    green-color: $chalk-green-color,
+    yellow-color: $chalk-yellow-color,
+    orange-color: $chalk-orange-color,
+    red-color: $chalk-red-color,
+    blue-color: $chalk-blue-color,
+    purple-color: $chalk-purple-color,
+    // Colors
+    color-primary: $chalk-color-primary,
+    color-primary-light-1: $chalk-color-primary-light-1,
+    color-primary-light-2: $chalk-color-primary-light-2,
+    color-primary-light-3: $chalk-color-primary-light-3,
+    color-primary-light-4: $chalk-color-primary-light-4,
+    color-primary-light-5: $chalk-color-primary-light-5,
+    color-primary-light-6: $chalk-color-primary-light-6,
+    color-primary-light-7: $chalk-color-primary-light-7,
+    color-primary-light-8: $chalk-color-primary-light-8,
+    color-primary-light-9: $chalk-color-primary-light-9,
+    color-success: $chalk-color-success,
+    color-warning: $chalk-color-warning,
+    color-danger: $chalk-color-danger,
+    color-info: $chalk-color-info,
+    color-success-light: $chalk-color-success-light,
+    color-warning-light: $chalk-color-warning-light,
+    color-danger-light: $chalk-color-danger-light,
+    color-info-light: $chalk-color-info-light,
+
+    color-text-primary: $chalk-color-text-primary,
+    color-text-regular: $chalk-color-text-regular,
+    color-text-secondary: $chalk-color-text-secondary,
+    color-text-placeholder: $chalk-color-text-placeholder,
+
+    link-color: $chalk-link-color,
+    link-hover-color: $chalk-link-hover-color,
+
+    background-color: $chalk-background-color,
+
+    border-color-base: $chalk-border-color-base,
+    border-color-light: $chalk-border-color-light,
+    border-color-lighter: $chalk-border-color-lighter,
+    border-color-extra-light: $chalk-border-color-extra-light,
+    border-color-hover: $chalk-border-color-hover,
+    border-base: $chalk-border-base,
+
+    box-shadow-base: $chalk-box-shadow-base,
+    box-shadow-dark: $chalk-box-shadow-dark,
+    box-shadow-light: $chalk-box-shadow-light,
+
+    fill-base: $chalk-fill-base,
+
+    font-color-disabled-base: $chalk-font-color-disabled-base,
+
+    disabled-fill-base: $chalk-disabled-fill-base,
+    disabled-color-base: $chalk-disabled-color-base,
+    disabled-border-base: $chalk-disabled-border-base,
+
+    icon-color: $chalk-icon-color,
+    icon-color-base: $chalk-icon-color-base,
+
+    checkbox-color: $chalk-color-text-regular,
+    checkbox-input-fill: $color-white,
+    checkbox-input-border-color: $chalk-border-color-base,
+    checkbox-icon-color: $color-white,
+
+    checkbox-disabled-input-border-color: $chalk-border-color-base,
     checkbox-disabled-input-fill: #edf2fc,
+    checkbox-disabled-icon-color: $chalk-color-text-placeholder,
+
+    checkbox-disabled-checked-input-fill: $chalk-border-color-extra-light,
+    checkbox-disabled-checked-input-border-color: $chalk-border-color-base,
+    checkbox-disabled-checked-icon-color: $chalk-color-text-placeholder,
+
+    checkbox-checked-text-color: $chalk-color-primary,
+    checkbox-checked-input-border-color: $chalk-color-primary,
+    checkbox-checked-input-fill: $chalk-color-primary,
+    checkbox-checked-icon-color: $color-white,
+
+    checkbox-input-border-color-hover: $chalk-color-primary,
+
+    checkbox-button-checked-fill: $chalk-color-primary,
+    checkbox-button-checked-color: $color-white,
+    checkbox-button-checked-border-color: $chalk-color-primary,
+
+    radio-color: $chalk-color-text-regular,
+    radio-input-fill: $color-white,
+    radio-input-border-color: $chalk-border-color-base,
+    radio-icon-color: $color-white,
+
+    radio-disabled-input-border-color: $chalk-disabled-border-base,
+    radio-disabled-input-fill: $chalk-disabled-fill-base,
+    radio-disabled-icon-color: $chalk-disabled-fill-base,
+
+    radio-disabled-checked-input-border-color: $chalk-disabled-border-base,
+    radio-disabled-checked-input-fill: $chalk-disabled-fill-base,
+    radio-disabled-checked-icon-color: $chalk-color-text-placeholder,
+
+    radio-checked-text-color: $chalk-color-primary,
+    radio-checked-input-border-color: $chalk-color-primary,
+    radio-checked-input-fill: $color-white,
+    radio-checked-icon-color: $chalk-color-primary,
+
+    radio-input-border-color-hover: $chalk-color-primary,
+
+    radio-button-checked-fill: $chalk-color-primary,
+    radio-button-checked-color: $color-white,
+    radio-button-checked-border-color: $chalk-color-primary,
+    radio-button-disabled-checked-fill: $chalk-border-color-extra-light,
+
+    select-border-color-hover: $chalk-color-text-placeholder,
+    select-disabled-border: $chalk-disabled-border-base,
+    select-close-hover-color: $chalk-color-text-secondary,
+
+    select-input-color: $chalk-color-text-placeholder,
     select-multiple-input-color: #666,
+    select-input-focus-background: $chalk-color-primary,
+
+    select-option-color: $chalk-color-text-regular,
+    select-option-disabled-color: $chalk-color-text-placeholder,
+    select-option-disabled-background: $color-white,
+    select-option-hover-background: $chalk-disabled-fill-base,
+    select-option-selected: $chalk-color-primary,
+    select-option-selected-hover: $chalk-disabled-fill-base,
+
+    select-group-color: $chalk-color-info,
+
+    select-dropdown-background: $color-white,
+    select-dropdown-shadow: $chalk-box-shadow-light,
     select-dropdown-empty-color: #999,
+    select-dropdown-border: solid 1px $chalk-border-color-light,
+
+    alert-success-color: $chalk-color-success-lighter,
+    alert-info-color: $chalk-color-info-lighter,
+    alert-warning-color: $chalk-color-warning-lighter,
+    alert-danger-color: $chalk-color-danger-lighter,
+
+    msgbox-content-color: $chalk-color-text-regular,
+
+    msgbox-success-color: $chalk-color-success,
+    msgbox-info-color: $chalk-color-info,
+    msgbox-warning-color: $chalk-color-warning,
+    msgbox-danger-color: $chalk-color-danger,
+
+    message-shadow: $chalk-box-shadow-base,
     message-background-color: #edf2fc,
+    message-content-color: $chalk-color-text-regular,
+    message-close-color: $chalk-color-text-placeholder,
+    message-close-hover-color: $chalk-color-text-secondary,
+
+    message-success-color: $chalk-color-success,
+    message-info-color: $chalk-color-info,
+    message-warning-color: $chalk-color-warning,
+    message-danger-color: $chalk-color-danger,
+
+    notification-shadow: $chalk-box-shadow-light,
+    notification-border-color: $chalk-border-color-lighter,
+    notification-color: $chalk-color-text-regular,
+    notification-title-color: $chalk-color-text-primary,
+
+    notification-close-color: $chalk-color-text-secondary,
+    notification-close-hover-color: $chalk-color-text-regular,
+
+    notification-success-color: $chalk-color-success,
+    notification-info-color: $chalk-color-info,
+    notification-warning-color: $chalk-color-warning,
+    notification-danger-color: $chalk-color-danger,
+
+    input-color: $chalk-color-text-regular,
+    input-border-color: $chalk-border-color-base,
+    input-border-color-hover: $chalk-border-color-hover,
+    input-fill: $color-white,
+    input-fill-disabled: $chalk-disabled-fill-base,
+    input-color-disabled: $chalk-font-color-disabled-base,
+    input-icon-color: $chalk-color-text-placeholder,
+    input-placeholder-color: $chalk-color-text-placeholder,
+
+    input-hover-border: $chalk-border-color-hover,
+    input-clear-hover-color: $chalk-color-text-secondary,
+
+    input-focus-border: $chalk-color-primary,
+    input-focus-fill: $color-white,
+
+    input-disabled-fill: $chalk-disabled-fill-base,
+    input-disabled-border: $chalk-disabled-border-base,
+    input-disabled-color: $chalk-disabled-color-base,
+    input-disabled-placeholder-color: $chalk-color-text-placeholder,
+
+    cascader-menu-border-color: $chalk-border-color-base,
+    cascader-menu-color: $chalk-color-text-regular,
+    cascader-menu-option-color-active: $chalk-color-text-secondary,
+    cascader-menu-option-fill-active: rgba($chalk-color-text-secondary, 0.12),
+    cascader-menu-option-color-hover: $chalk-color-text-regular,
+    cascader-menu-option-fill-hover: rgba($chalk-color-text-primary, 0.06),
     cascader-menu-option-color-disabled: #999,
+    cascader-menu-option-fill-disabled: rgba($color-black, 0.06),
     cascader-menu-option-empty-color: #666,
     cascader-menu-group-color: #999,
+    // cascader-menu-shadow: 0 1px 2px rgba($color-black, 0.14), 0 0 3px rgba($color-black, 0.14),
     cascader-menu-option-pinyin-color: #999,
+    // cascader-menu-submenu-shadow: 1px 1px 2px rgba($color-black, 0.14), 1px 0 2px rgba($color-black, 0.14),
+
+    group-option-fill-hover: rgba($color-black, 0.06),
+    group-title-color: $color-black,
+
     tab-border-line: 1px solid #e4e4e4,
+    tab-header-color-active: $chalk-color-text-secondary,
+    tab-header-color-hover: $chalk-color-text-regular,
+    tab-header-color: $chalk-color-text-regular,
+    tab-header-fill-active: rgba($color-black, 0.06),
+    tab-header-fill-hover: rgba($color-black, 0.06),
+    tab-vertical-header-count-color: $color-white,
+    tab-vertical-header-count-fill: $chalk-color-text-secondary,
+
+    button-default-color: $chalk-color-text-regular,
+    button-default-fill: $color-white,
+    button-default-border: $chalk-border-color-base,
+
+    button-disabled-color: $chalk-color-text-placeholder,
+    button-disabled-fill: $color-white,
+    button-disabled-border: $chalk-border-color-lighter,
+
+    button-primary-border: $chalk-color-primary,
+    button-primary-color: $color-white,
+    button-primary-fill: $chalk-color-primary,
+
+    button-success-border: $chalk-color-success,
+    button-success-color: $color-white,
+    button-success-fill: $chalk-color-success,
+
+    button-warning-border: $chalk-color-warning,
+    button-warning-color: $color-white,
+    button-warning-fill: $chalk-color-warning,
+
+    button-danger-border: $chalk-color-danger,
+    button-danger-color: $color-white,
+    button-danger-fill: $chalk-color-danger,
+
+    button-info-border: $chalk-color-info,
+    button-info-color: $color-white,
+    button-info-fill: $chalk-color-info,
+
+    switch-on-color: $chalk-color-primary,
+    switch-off-color: $chalk-border-color-base,
+    switch-disabled-color: $chalk-border-color-lighter,
+    switch-disabled-text-color: $chalk-color-text-placeholder,
+
+    dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+    dialog-close-hover-color: $chalk-color-primary,
+
+    table-border-color: $chalk-border-color-lighter,
+    table-border: 1px solid $chalk-border-color-lighter,
+    table-text-color: $chalk-color-text-regular,
+    table-header-color: $chalk-color-text-secondary,
+    table-row-hover-background: $chalk-background-color,
+    table-current-row-background: $chalk-color-primary-light-9,
+    table-header-background: $color-white,
+    table-footer-background: $chalk-color-text-placeholder,
+    table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12),
+
+    pagination-fill: $color-white,
+    pagination-color: $chalk-color-text-primary,
+    pagination-button-color: $chalk-color-text-primary,
+    pagination-button-disabled-color: $chalk-color-text-placeholder,
+    pagination-button-disabled-fill: $color-white,
+    pagination-hover-fill: $chalk-color-primary,
+    pagination-hover-color: $color-white,
+
+    popover-fill: $color-white,
+    popover-border-color: $chalk-border-color-lighter,
+    popover-title-color: $chalk-color-text-primary,
+
+    tooltip-fill: $chalk-color-text-primary,
+    tooltip-color: $color-white,
+    tooltip-border-color: $chalk-color-text-primary,
+
+    tag-fill: rgba($chalk-color-primary, 0.10),
+    tag-color: $chalk-color-primary,
+    tag-border: rgba($chalk-color-primary, 0.20),
+
+    tag-info-fill: rgba($chalk-color-info, 0.10),
+    tag-info-border: rgba($chalk-color-info, 0.20),
+    tag-info-color: $chalk-color-info,
+
+    tag-primary-fill: rgba($chalk-color-primary, 0.10),
+    tag-primary-border: rgba($chalk-color-primary, 0.20),
+    tag-primary-color: $chalk-color-primary,
+
+    tag-success-fill: rgba($chalk-color-success, 0.10),
+    tag-success-border: rgba($chalk-color-success, 0.20),
+    tag-success-color: $chalk-color-success,
+
+    tag-warning-fill: rgba($chalk-color-warning, 0.10),
+    tag-warning-border: rgba($chalk-color-warning, 0.20),
+    tag-warning-color: $chalk-color-warning,
+
+    tag-danger-fill: rgba($chalk-color-danger, 0.10),
+    tag-danger-border: rgba($chalk-color-danger, 0.20),
+    tag-danger-color: $chalk-color-danger,
+
+    tree-node-hover-color: $chalk-background-color,
+    tree-text-color: $chalk-color-text-regular,
+    tree-expand-icon-color: $chalk-color-text-placeholder,
+
+    dropdown-menu-box-shadow: $chalk-box-shadow-light,
+    dropdown-menuItem-hover-fill: $chalk-color-primary-light-9,
+    dropdown-menuItem-hover-color: $chalk-link-color,
+
+    badge-fill: $chalk-color-danger,
+
+    card-border-color: $chalk-border-color-lighter,
+
+    slider-main-background-color: $chalk-color-primary,
+    slider-runway-background-color: $chalk-border-color-light,
+    slider-button-hover-color: mix($chalk-color-primary, black, 97%),
+    slider-stop-background-color: $color-white,
+    slider-disable-color: $chalk-color-text-placeholder,
+
+    menu-item-color: $chalk-color-text-primary,
+    menu-item-fill: $color-white,
+    menu-item-hover-fill: $chalk-color-primary-light-9,
+
+    rate-icon-color: $chalk-color-text-placeholder,
+
+    datepicker-color: $chalk-color-text-regular,
+    datepicker-off-color: $chalk-color-text-placeholder,
+    datepicker-header-color: $chalk-color-text-regular,
+    datepicker-icon-color: $chalk-color-text-primary,
+    datepicker-border-color: $chalk-disabled-border-base,
     datepicker-inner-border-color: #e4e4e4,
-    datepicker-cell-hover-color: #fff,
+    datepicker-inrange-color: $chalk-border-color-extra-light,
+    datepicker-inrange-hover-color: $chalk-border-color-extra-light,
+    datepicker-active-color: $chalk-color-primary,
+    datepicker-text-hover-color: $chalk-color-primary,
+    datepicker-cell-hover-color: $color-white,
+
+    scrollbar-background-color: rgba($chalk-color-text-secondary, .3),
+    scrollbar-hover-background-color: rgba($chalk-color-text-secondary, .5),
+
     carousel-arrow-background: rgba(31, 45, 61, 0.11),
-    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23)
+    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23),
+
+    collapse-border-color: $chalk-border-color-lighter,
+    collapse-header-fill: $color-white,
+    collapse-header-color: $chalk-color-text-primary,
+    collapse-content-fill: $color-white,
+    collapse-content-color: $chalk-color-text-primary,
+
+    transfer-border-color: $chalk-border-color-lighter,
+    transfer-panel-header-background: $chalk-background-color,
+    transfer-item-hover-background: $chalk-color-text-secondary
   ),
   light: (
+    // base color
     system-l0-color: #0c0c0c,
     app-l1-color: #e0e0e0,
     tile-l2-color: #f2f2f2,
@@ -84,39 +372,351 @@ $themes: (
     red-color: #f52323,
     blue-color: #0082f0,
     purple-color: #a56ebe,
-    color-white: #fff,
-    color-black: #000,
-    color-primary: $light-blue-color,
-    color-success: $light-green-color,
-    color-warning: $light-yellow-color,
-    color-danger: $light-red-color,
-    color-info: #909399,
-    color-text-primary: $light-text-color,
-    color-text-regular: #606266,
-    color-text-secondary: #909399,
-    color-text-placeholder: #c0c4cc,
-    background-color: #f5f7fa,
-    border-color-base: #dcdfe6,
-    border-color-light: #e4e7ed,
-    border-color-lighter: #ebeef5,
-    border-color-extra-light: #f2f6fc,
-    font-color-disabled-base: #bbb,
-    icon-color: #666,
+    // Colors
+    color-primary: $light-color-primary,
+    color-primary-light-1: $light-color-primary-light-1,
+    color-primary-light-2: $light-color-primary-light-2,
+    color-primary-light-3: $light-color-primary-light-3,
+    color-primary-light-4: $light-color-primary-light-4,
+    color-primary-light-5: $light-color-primary-light-5,
+    color-primary-light-6: $light-color-primary-light-6,
+    color-primary-light-7: $light-color-primary-light-7,
+    color-primary-light-8: $light-color-primary-light-8,
+    color-primary-light-9: $light-color-primary-light-9,
+    color-success: $light-color-success,
+    color-warning: $light-color-warning,
+    color-danger: $light-color-danger,
+    color-info: $light-color-info,
+    color-success-light: $light-color-success-light,
+    color-warning-light: $light-color-warning-light,
+    color-danger-light: $light-color-danger-light,
+    color-info-light: $light-color-info-light,
+
+    color-text-primary: $light-color-text-primary,
+    color-text-regular: $light-color-text-regular,
+    color-text-secondary: $light-color-text-secondary,
+    color-text-placeholder: $light-color-text-placeholder,
+
+    link-color: $light-link-color,
+    link-hover-color: $light-link-hover-color,
+
+    background-color: $light-background-color,
+
+    border-color-base: $light-border-color-base,
+    border-color-light: $light-border-color-light,
+    border-color-lighter: $light-border-color-lighter,
+    border-color-extra-light: $light-border-color-extra-light,
+    border-color-hover: $light-border-color-hover,
+    border-base: $light-border-base,
+
+    box-shadow-base: $light-box-shadow-base,
+    box-shadow-dark: $light-box-shadow-dark,
+    box-shadow-light: $light-box-shadow-light,
+
+    fill-base: $light-fill-base,
+
+    font-color-disabled-base: $light-font-color-disabled-base,
+
+    disabled-fill-base: $light-disabled-fill-base,
+    disabled-color-base: $light-disabled-color-base,
+    disabled-border-base: $light-disabled-border-base,
+
+    icon-color: $light-icon-color,
+    icon-color-base: $light-icon-color-base,
+
+    checkbox-color: $light-color-text-regular,
+    checkbox-input-fill: $color-white,
+    checkbox-input-border-color: $light-border-color-base,
+    checkbox-icon-color: $color-white,
+
+    checkbox-disabled-input-border-color: $light-border-color-base,
     checkbox-disabled-input-fill: #edf2fc,
+    checkbox-disabled-icon-color: $light-color-text-placeholder,
+
+    checkbox-disabled-checked-input-fill: $light-border-color-extra-light,
+    checkbox-disabled-checked-input-border-color: $light-border-color-base,
+    checkbox-disabled-checked-icon-color: $light-color-text-placeholder,
+
+    checkbox-checked-text-color: $light-color-primary,
+    checkbox-checked-input-border-color: $light-color-primary,
+    checkbox-checked-input-fill: $light-color-primary,
+    checkbox-checked-icon-color: $color-white,
+
+    checkbox-input-border-color-hover: $light-color-primary,
+
+    checkbox-button-checked-fill: $light-color-primary,
+    checkbox-button-checked-color: $color-white,
+    checkbox-button-checked-border-color: $light-color-primary,
+
+    radio-color: $light-color-text-regular,
+    radio-input-fill: $color-white,
+    radio-input-border-color: $light-border-color-base,
+    radio-icon-color: $color-white,
+
+    radio-disabled-input-border-color: $light-disabled-border-base,
+    radio-disabled-input-fill: $light-disabled-fill-base,
+    radio-disabled-icon-color: $light-disabled-fill-base,
+
+    radio-disabled-checked-input-border-color: $light-disabled-border-base,
+    radio-disabled-checked-input-fill: $light-disabled-fill-base,
+    radio-disabled-checked-icon-color: $light-color-text-placeholder,
+
+    radio-checked-text-color: $light-color-primary,
+    radio-checked-input-border-color: $light-color-primary,
+    radio-checked-input-fill: $color-white,
+    radio-checked-icon-color: $light-color-primary,
+
+    radio-input-border-color-hover: $light-color-primary,
+
+    radio-button-checked-fill: $light-color-primary,
+    radio-button-checked-color: $color-white,
+    radio-button-checked-border-color: $light-color-primary,
+    radio-button-disabled-checked-fill: $light-border-color-extra-light,
+
+    select-border-color-hover: $light-color-text-placeholder,
+    select-disabled-border: $light-disabled-border-base,
+    select-close-hover-color: $light-color-text-secondary,
+
+    select-input-color: $light-color-text-placeholder,
     select-multiple-input-color: #666,
+    select-input-focus-background: $light-color-primary,
+
+    select-option-color: $light-color-text-regular,
+    select-option-disabled-color: $light-color-text-placeholder,
+    select-option-disabled-background: $color-white,
+    select-option-hover-background: $light-disabled-fill-base,
+    select-option-selected: $light-color-primary,
+    select-option-selected-hover: $light-disabled-fill-base,
+
+    select-group-color: $light-color-info,
+
+    select-dropdown-background: $color-white,
+    select-dropdown-shadow: $light-box-shadow-light,
     select-dropdown-empty-color: #999,
+    select-dropdown-border: solid 1px $light-border-color-light,
+
+    alert-success-color: $light-color-success-lighter,
+    alert-info-color: $light-color-info-lighter,
+    alert-warning-color: $light-color-warning-lighter,
+    alert-danger-color: $light-color-danger-lighter,
+
+    msgbox-content-color: $light-color-text-regular,
+
+    msgbox-success-color: $light-color-success,
+    msgbox-info-color: $light-color-info,
+    msgbox-warning-color: $light-color-warning,
+    msgbox-danger-color: $light-color-danger,
+
+    message-shadow: $light-box-shadow-base,
     message-background-color: #edf2fc,
+    message-content-color: $light-color-text-regular,
+    message-close-color: $light-color-text-placeholder,
+    message-close-hover-color: $light-color-text-secondary,
+
+    message-success-color: $light-color-success,
+    message-info-color: $light-color-info,
+    message-warning-color: $light-color-warning,
+    message-danger-color: $light-color-danger,
+
+    notification-shadow: $light-box-shadow-light,
+    notification-border-color: $light-border-color-lighter,
+    notification-color: $light-color-text-regular,
+    notification-title-color: $light-color-text-primary,
+
+    notification-close-color: $light-color-text-secondary,
+    notification-close-hover-color: $light-color-text-regular,
+
+    notification-success-color: $light-color-success,
+    notification-info-color: $light-color-info,
+    notification-warning-color: $light-color-warning,
+    notification-danger-color: $light-color-danger,
+
+    input-color: $light-color-text-regular,
+    input-border-color: $light-border-color-base,
+    input-border-color-hover: $light-border-color-hover,
+    input-fill: $color-white,
+    input-fill-disabled: $light-disabled-fill-base,
+    input-color-disabled: $light-font-color-disabled-base,
+    input-icon-color: $light-color-text-placeholder,
+    input-placeholder-color: $light-color-text-placeholder,
+
+    input-hover-border: $light-border-color-hover,
+    input-clear-hover-color: $light-color-text-secondary,
+
+    input-focus-border: $light-color-primary,
+    input-focus-fill: $color-white,
+
+    input-disabled-fill: $light-disabled-fill-base,
+    input-disabled-border: $light-disabled-border-base,
+    input-disabled-color: $light-disabled-color-base,
+    input-disabled-placeholder-color: $light-color-text-placeholder,
+
+    cascader-menu-border-color: $light-border-color-base,
+    cascader-menu-color: $light-color-text-regular,
+    cascader-menu-option-color-active: $light-color-text-secondary,
+    cascader-menu-option-fill-active: rgba($light-color-text-secondary, 0.12),
+    cascader-menu-option-color-hover: $light-color-text-regular,
+    cascader-menu-option-fill-hover: rgba($light-color-text-primary, 0.06),
     cascader-menu-option-color-disabled: #999,
+    cascader-menu-option-fill-disabled: rgba($color-black, 0.06),
     cascader-menu-option-empty-color: #666,
     cascader-menu-group-color: #999,
+    // cascader-menu-shadow: 0 1px 2px rgba($color-black, 0.14), 0 0 3px rgba($color-black, 0.14),
     cascader-menu-option-pinyin-color: #999,
+    // cascader-menu-submenu-shadow: 1px 1px 2px rgba($color-black, 0.14), 1px 0 2px rgba($color-black, 0.14),
+
+    group-option-fill-hover: rgba($color-black, 0.06),
+    group-title-color: $color-black,
+
     tab-border-line: 1px solid #e4e4e4,
+    tab-header-color-active: $light-color-text-secondary,
+    tab-header-color-hover: $light-color-text-regular,
+    tab-header-color: $light-color-text-regular,
+    tab-header-fill-active: rgba($color-black, 0.06),
+    tab-header-fill-hover: rgba($color-black, 0.06),
+    tab-vertical-header-count-color: $color-white,
+    tab-vertical-header-count-fill: $light-color-text-secondary,
+
+    button-default-color: $light-color-text-regular,
+    button-default-fill: $color-white,
+    button-default-border: $light-border-color-base,
+
+    button-disabled-color: $light-color-text-placeholder,
+    button-disabled-fill: $color-white,
+    button-disabled-border: $light-border-color-lighter,
+
+    button-primary-border: $light-color-primary,
+    button-primary-color: $color-white,
+    button-primary-fill: $light-color-primary,
+
+    button-success-border: $light-color-success,
+    button-success-color: $color-white,
+    button-success-fill: $light-color-success,
+
+    button-warning-border: $light-color-warning,
+    button-warning-color: $color-white,
+    button-warning-fill: $light-color-warning,
+
+    button-danger-border: $light-color-danger,
+    button-danger-color: $color-white,
+    button-danger-fill: $light-color-danger,
+
+    button-info-border: $light-color-info,
+    button-info-color: $color-white,
+    button-info-fill: $light-color-info,
+
+    switch-on-color: $light-color-primary,
+    switch-off-color: $light-border-color-base,
+    switch-disabled-color: $light-border-color-lighter,
+    switch-disabled-text-color: $light-color-text-placeholder,
+
+    dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+    dialog-close-hover-color: $light-color-primary,
+
+    table-border-color: $light-border-color-lighter,
+    table-border: 1px solid $light-border-color-lighter,
+    table-text-color: $light-color-text-regular,
+    table-header-color: $light-color-text-secondary,
+    table-row-hover-background: $light-background-color,
+    table-current-row-background: $light-color-primary-light-9,
+    table-header-background: $color-white,
+    table-footer-background: $light-color-text-placeholder,
+    table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12),
+
+    pagination-fill: $color-white,
+    pagination-color: $light-color-text-primary,
+    pagination-button-color: $light-color-text-primary,
+    pagination-button-disabled-color: $light-color-text-placeholder,
+    pagination-button-disabled-fill: $color-white,
+    pagination-hover-fill: $light-color-primary,
+    pagination-hover-color: $color-white,
+
+    popover-fill: $color-white,
+    popover-border-color: $light-border-color-lighter,
+    popover-title-color: $light-color-text-primary,
+
+    tooltip-fill: $light-color-text-primary,
+    tooltip-color: $color-white,
+    tooltip-border-color: $light-color-text-primary,
+
+    tag-fill: rgba($light-color-primary, 0.10),
+    tag-color: $light-color-primary,
+    tag-border: rgba($light-color-primary, 0.20),
+
+    tag-info-fill: rgba($light-color-info, 0.10),
+    tag-info-border: rgba($light-color-info, 0.20),
+    tag-info-color: $light-color-info,
+
+    tag-primary-fill: rgba($light-color-primary, 0.10),
+    tag-primary-border: rgba($light-color-primary, 0.20),
+    tag-primary-color: $light-color-primary,
+
+    tag-success-fill: rgba($light-color-success, 0.10),
+    tag-success-border: rgba($light-color-success, 0.20),
+    tag-success-color: $light-color-success,
+
+    tag-warning-fill: rgba($light-color-warning, 0.10),
+    tag-warning-border: rgba($light-color-warning, 0.20),
+    tag-warning-color: $light-color-warning,
+
+    tag-danger-fill: rgba($light-color-danger, 0.10),
+    tag-danger-border: rgba($light-color-danger, 0.20),
+    tag-danger-color: $light-color-danger,
+
+    tree-node-hover-color: $light-background-color,
+    tree-text-color: $light-color-text-regular,
+    tree-expand-icon-color: $light-color-text-placeholder,
+
+    dropdown-menu-box-shadow: $light-box-shadow-light,
+    dropdown-menuItem-hover-fill: $light-color-primary-light-9,
+    dropdown-menuItem-hover-color: $light-link-color,
+
+    badge-fill: $light-color-danger,
+
+    card-border-color: $light-border-color-lighter,
+
+    slider-main-background-color: $light-color-primary,
+    slider-runway-background-color: $light-border-color-light,
+    slider-button-hover-color: mix($light-color-primary, black, 97%),
+    slider-stop-background-color: $color-white,
+    slider-disable-color: $light-color-text-placeholder,
+
+    menu-item-color: $light-color-text-primary,
+    menu-item-fill: $color-white,
+    menu-item-hover-fill: $light-color-primary-light-9,
+
+    rate-icon-color: $light-color-text-placeholder,
+
+    datepicker-color: $light-color-text-regular,
+    datepicker-off-color: $light-color-text-placeholder,
+    datepicker-header-color: $light-color-text-regular,
+    datepicker-icon-color: $light-color-text-primary,
+    datepicker-border-color: $light-disabled-border-base,
     datepicker-inner-border-color: #e4e4e4,
-    datepicker-cell-hover-color: #fff,
+    datepicker-inrange-color: $light-border-color-extra-light,
+    datepicker-inrange-hover-color: $light-border-color-extra-light,
+    datepicker-active-color: $light-color-primary,
+    datepicker-text-hover-color: $light-color-primary,
+    datepicker-cell-hover-color: $color-white,
+
+    scrollbar-background-color: rgba($light-color-text-secondary, .3),
+    scrollbar-hover-background-color: rgba($light-color-text-secondary, .5),
+
     carousel-arrow-background: rgba(31, 45, 61, 0.11),
-    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23)
+    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23),
+
+    collapse-border-color: $light-border-color-lighter,
+    collapse-header-fill: $color-white,
+    collapse-header-color: $light-color-text-primary,
+    collapse-content-fill: $color-white,
+    collapse-content-color: $light-color-text-primary,
+
+    transfer-border-color: $light-border-color-lighter,
+    transfer-panel-header-background: $light-background-color,
+    transfer-item-hover-background: $light-color-text-secondary
   ),
   dark: (
+    // base color
     system-l0-color: #0c0c0c,
     app-l1-color: #181818,
     tile-l2-color: #242424,
@@ -129,37 +729,348 @@ $themes: (
     red-color: #dc2d37,
     blue-color: #0082f0,
     purple-color: #8e45b0,
-    color-white: #fff,
-    color-black: #000,
-    color-primary: $dark-blue-color,
-    color-success: $dark-green-color,
-    color-warning: $dark-yellow-color,
-    color-danger: $dark-red-color,
-    color-info: #909399,
-    color-text-primary: $dark-text-color,
-    color-text-regular: #606266,
-    color-text-secondary: #909399,
-    color-text-placeholder: #c0c4cc,
-    background-color: $dark-tile-l2-color,
-    border-color-base: #4e4e4e,
-    border-color-light: $dark-gray-color,
-    border-color-lighter: lighten($dark-gray-color, 10%),
-    border-color-extra-light: lighten($dark-gray-color, 20%),
-    font-color-disabled-base: fade-out($dark-text-color, 0.6),
-    icon-color: $dark-text-color,
+    // Colors
+    color-primary: $dark-color-primary,
+    color-primary-light-1: $dark-color-primary-light-1,
+    color-primary-light-2: $dark-color-primary-light-2,
+    color-primary-light-3: $dark-color-primary-light-3,
+    color-primary-light-4: $dark-color-primary-light-4,
+    color-primary-light-5: $dark-color-primary-light-5,
+    color-primary-light-6: $dark-color-primary-light-6,
+    color-primary-light-7: $dark-color-primary-light-7,
+    color-primary-light-8: $dark-color-primary-light-8,
+    color-primary-light-9: $dark-color-primary-light-9,
+    color-success: $dark-color-success,
+    color-warning: $dark-color-warning,
+    color-danger: $dark-color-danger,
+    color-info: $dark-color-info,
+    color-success-light: $dark-color-success-light,
+    color-warning-light: $dark-color-warning-light,
+    color-danger-light: $dark-color-danger-light,
+    color-info-light: $dark-color-info-light,
+
+    color-text-primary: $dark-color-text-primary,
+    color-text-regular: $dark-color-text-regular,
+    color-text-secondary: $dark-color-text-secondary,
+    color-text-placeholder: $dark-color-text-placeholder,
+
+    link-color: $dark-link-color,
+    link-hover-color: $dark-link-hover-color,
+
+    background-color: $dark-background-color,
+
+    border-color-base: $dark-border-color-base,
+    border-color-light: $dark-border-color-light,
+    border-color-lighter: $dark-border-color-lighter,
+    border-color-extra-light: $dark-border-color-extra-light,
+    border-color-hover: $dark-border-color-hover,
+    border-base: $dark-border-base,
+
+    box-shadow-base: $dark-box-shadow-base,
+    box-shadow-dark: $dark-box-shadow-dark,
+    box-shadow-light: $dark-box-shadow-light,
+
+    fill-base: $dark-fill-base,
+
+    font-color-disabled-base: $dark-font-color-disabled-base,
+
+    disabled-fill-base: $dark-disabled-fill-base,
+    disabled-color-base: $dark-disabled-color-base,
+    disabled-border-base: $dark-disabled-border-base,
+
+    icon-color: $dark-icon-color,
+    icon-color-base: $dark-icon-color-base,
+
+    checkbox-color: $dark-color-text-regular,
+    checkbox-input-fill: $color-white,
+    checkbox-input-border-color: $dark-border-color-base,
+    checkbox-icon-color: $color-white,
+
+    checkbox-disabled-input-border-color: $dark-border-color-base,
     checkbox-disabled-input-fill: #edf2fc,
+    checkbox-disabled-icon-color: $dark-color-text-placeholder,
+
+    checkbox-disabled-checked-input-fill: $dark-border-color-extra-light,
+    checkbox-disabled-checked-input-border-color: $dark-border-color-base,
+    checkbox-disabled-checked-icon-color: $dark-color-text-placeholder,
+
+    checkbox-checked-text-color: $dark-color-primary,
+    checkbox-checked-input-border-color: $dark-color-primary,
+    checkbox-checked-input-fill: $dark-color-primary,
+    checkbox-checked-icon-color: $color-white,
+
+    checkbox-input-border-color-hover: $dark-color-primary,
+
+    checkbox-button-checked-fill: $dark-color-primary,
+    checkbox-button-checked-color: $color-white,
+    checkbox-button-checked-border-color: $dark-color-primary,
+
+    radio-color: $dark-color-text-regular,
+    radio-input-fill: $color-white,
+    radio-input-border-color: $dark-border-color-base,
+    radio-icon-color: $color-white,
+
+    radio-disabled-input-border-color: $dark-disabled-border-base,
+    radio-disabled-input-fill: $dark-disabled-fill-base,
+    radio-disabled-icon-color: $dark-disabled-fill-base,
+
+    radio-disabled-checked-input-border-color: $dark-disabled-border-base,
+    radio-disabled-checked-input-fill: $dark-disabled-fill-base,
+    radio-disabled-checked-icon-color: $dark-color-text-placeholder,
+
+    radio-checked-text-color: $dark-color-primary,
+    radio-checked-input-border-color: $dark-color-primary,
+    radio-checked-input-fill: $color-white,
+    radio-checked-icon-color: $dark-color-primary,
+
+    radio-input-border-color-hover: $dark-color-primary,
+
+    radio-button-checked-fill: $dark-color-primary,
+    radio-button-checked-color: $color-white,
+    radio-button-checked-border-color: $dark-color-primary,
+    radio-button-disabled-checked-fill: $dark-border-color-extra-light,
+
+    select-border-color-hover: $dark-color-text-placeholder,
+    select-disabled-border: $dark-disabled-border-base,
+    select-close-hover-color: $dark-color-text-secondary,
+
+    select-input-color: $dark-color-text-placeholder,
     select-multiple-input-color: #666,
+    select-input-focus-background: $dark-color-primary,
+
+    select-option-color: $dark-color-text-regular,
+    select-option-disabled-color: $dark-color-text-placeholder,
+    select-option-disabled-background: $color-white,
+    select-option-hover-background: $dark-disabled-fill-base,
+    select-option-selected: $dark-color-primary,
+    select-option-selected-hover: $dark-disabled-fill-base,
+
+    select-group-color: $dark-color-info,
+
+    select-dropdown-background: $color-white,
+    select-dropdown-shadow: $dark-box-shadow-light,
     select-dropdown-empty-color: #999,
+    select-dropdown-border: solid 1px $dark-border-color-light,
+
+    alert-success-color: $dark-color-success-lighter,
+    alert-info-color: $dark-color-info-lighter,
+    alert-warning-color: $dark-color-warning-lighter,
+    alert-danger-color: $dark-color-danger-lighter,
+
+    msgbox-content-color: $dark-color-text-regular,
+
+    msgbox-success-color: $dark-color-success,
+    msgbox-info-color: $dark-color-info,
+    msgbox-warning-color: $dark-color-warning,
+    msgbox-danger-color: $dark-color-danger,
+
+    message-shadow: $dark-box-shadow-base,
     message-background-color: #edf2fc,
+    message-content-color: $dark-color-text-regular,
+    message-close-color: $dark-color-text-placeholder,
+    message-close-hover-color: $dark-color-text-secondary,
+
+    message-success-color: $dark-color-success,
+    message-info-color: $dark-color-info,
+    message-warning-color: $dark-color-warning,
+    message-danger-color: $dark-color-danger,
+
+    notification-shadow: $dark-box-shadow-light,
+    notification-border-color: $dark-border-color-lighter,
+    notification-color: $dark-color-text-regular,
+    notification-title-color: $dark-color-text-primary,
+
+    notification-close-color: $dark-color-text-secondary,
+    notification-close-hover-color: $dark-color-text-regular,
+
+    notification-success-color: $dark-color-success,
+    notification-info-color: $dark-color-info,
+    notification-warning-color: $dark-color-warning,
+    notification-danger-color: $dark-color-danger,
+
+    input-color: $dark-color-text-regular,
+    input-border-color: $dark-border-color-base,
+    input-border-color-hover: $dark-border-color-hover,
+    input-fill: $color-white,
+    input-fill-disabled: $dark-disabled-fill-base,
+    input-color-disabled: $dark-font-color-disabled-base,
+    input-icon-color: $dark-color-text-placeholder,
+    input-placeholder-color: $dark-color-text-placeholder,
+
+    input-hover-border: $dark-border-color-hover,
+    input-clear-hover-color: $dark-color-text-secondary,
+
+    input-focus-border: $dark-color-primary,
+    input-focus-fill: $color-white,
+
+    input-disabled-fill: $dark-disabled-fill-base,
+    input-disabled-border: $dark-disabled-border-base,
+    input-disabled-color: $dark-disabled-color-base,
+    input-disabled-placeholder-color: $dark-color-text-placeholder,
+
+    cascader-menu-border-color: $dark-border-color-base,
+    cascader-menu-color: $dark-color-text-regular,
+    cascader-menu-option-color-active: $dark-color-text-secondary,
+    cascader-menu-option-fill-active: rgba($dark-color-text-secondary, 0.12),
+    cascader-menu-option-color-hover: $dark-color-text-regular,
+    cascader-menu-option-fill-hover: rgba($dark-color-text-primary, 0.06),
     cascader-menu-option-color-disabled: #999,
+    cascader-menu-option-fill-disabled: rgba($color-black, 0.06),
     cascader-menu-option-empty-color: #666,
     cascader-menu-group-color: #999,
+    // cascader-menu-shadow: 0 1px 2px rgba($color-black, 0.14), 0 0 3px rgba($color-black, 0.14),
     cascader-menu-option-pinyin-color: #999,
+    // cascader-menu-submenu-shadow: 1px 1px 2px rgba($color-black, 0.14), 1px 0 2px rgba($color-black, 0.14),
+
+    group-option-fill-hover: rgba($color-black, 0.06),
+    group-title-color: $color-black,
+
     tab-border-line: 1px solid #e4e4e4,
+    tab-header-color-active: $dark-color-text-secondary,
+    tab-header-color-hover: $dark-color-text-regular,
+    tab-header-color: $dark-color-text-regular,
+    tab-header-fill-active: rgba($color-black, 0.06),
+    tab-header-fill-hover: rgba($color-black, 0.06),
+    tab-vertical-header-count-color: $color-white,
+    tab-vertical-header-count-fill: $dark-color-text-secondary,
+
+    button-default-color: $dark-color-text-regular,
+    button-default-fill: $color-white,
+    button-default-border: $dark-border-color-base,
+
+    button-disabled-color: $dark-color-text-placeholder,
+    button-disabled-fill: $color-white,
+    button-disabled-border: $dark-border-color-lighter,
+
+    button-primary-border: $dark-color-primary,
+    button-primary-color: $color-white,
+    button-primary-fill: $dark-color-primary,
+
+    button-success-border: $dark-color-success,
+    button-success-color: $color-white,
+    button-success-fill: $dark-color-success,
+
+    button-warning-border: $dark-color-warning,
+    button-warning-color: $color-white,
+    button-warning-fill: $dark-color-warning,
+
+    button-danger-border: $dark-color-danger,
+    button-danger-color: $color-white,
+    button-danger-fill: $dark-color-danger,
+
+    button-info-border: $dark-color-info,
+    button-info-color: $color-white,
+    button-info-fill: $dark-color-info,
+
+    switch-on-color: $dark-color-primary,
+    switch-off-color: $dark-border-color-base,
+    switch-disabled-color: $dark-border-color-lighter,
+    switch-disabled-text-color: $dark-color-text-placeholder,
+
+    dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+    dialog-close-hover-color: $dark-color-primary,
+
+    table-border-color: $dark-border-color-lighter,
+    table-border: 1px solid $dark-border-color-lighter,
+    table-text-color: $dark-color-text-regular,
+    table-header-color: $dark-color-text-secondary,
+    table-row-hover-background: $dark-background-color,
+    table-current-row-background: $dark-color-primary-light-9,
+    table-header-background: $color-white,
+    table-footer-background: $dark-color-text-placeholder,
+    table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12),
+
+    pagination-fill: $color-white,
+    pagination-color: $dark-color-text-primary,
+    pagination-button-color: $dark-color-text-primary,
+    pagination-button-disabled-color: $dark-color-text-placeholder,
+    pagination-button-disabled-fill: $color-white,
+    pagination-hover-fill: $dark-color-primary,
+    pagination-hover-color: $color-white,
+
+    popover-fill: $color-white,
+    popover-border-color: $dark-border-color-lighter,
+    popover-title-color: $dark-color-text-primary,
+
+    tooltip-fill: $dark-color-text-primary,
+    tooltip-color: $color-white,
+    tooltip-border-color: $dark-color-text-primary,
+
+    tag-fill: rgba($dark-color-primary, 0.10),
+    tag-color: $dark-color-primary,
+    tag-border: rgba($dark-color-primary, 0.20),
+
+    tag-info-fill: rgba($dark-color-info, 0.10),
+    tag-info-border: rgba($dark-color-info, 0.20),
+    tag-info-color: $dark-color-info,
+
+    tag-primary-fill: rgba($dark-color-primary, 0.10),
+    tag-primary-border: rgba($dark-color-primary, 0.20),
+    tag-primary-color: $dark-color-primary,
+
+    tag-success-fill: rgba($dark-color-success, 0.10),
+    tag-success-border: rgba($dark-color-success, 0.20),
+    tag-success-color: $dark-color-success,
+
+    tag-warning-fill: rgba($dark-color-warning, 0.10),
+    tag-warning-border: rgba($dark-color-warning, 0.20),
+    tag-warning-color: $dark-color-warning,
+
+    tag-danger-fill: rgba($dark-color-danger, 0.10),
+    tag-danger-border: rgba($dark-color-danger, 0.20),
+    tag-danger-color: $dark-color-danger,
+
+    tree-node-hover-color: $dark-background-color,
+    tree-text-color: $dark-color-text-regular,
+    tree-expand-icon-color: $dark-color-text-placeholder,
+
+    dropdown-menu-box-shadow: $dark-box-shadow-light,
+    dropdown-menuItem-hover-fill: $dark-color-primary-light-9,
+    dropdown-menuItem-hover-color: $dark-link-color,
+
+    badge-fill: $dark-color-danger,
+
+    card-border-color: $dark-border-color-lighter,
+
+    slider-main-background-color: $dark-color-primary,
+    slider-runway-background-color: $dark-border-color-light,
+    slider-button-hover-color: mix($dark-color-primary, black, 97%),
+    slider-stop-background-color: $color-white,
+    slider-disable-color: $dark-color-text-placeholder,
+
+    menu-item-color: $dark-color-text-primary,
+    menu-item-fill: $color-white,
+    menu-item-hover-fill: $dark-color-primary-light-9,
+
+    rate-icon-color: $dark-color-text-placeholder,
+
+    datepicker-color: $dark-color-text-regular,
+    datepicker-off-color: $dark-color-text-placeholder,
+    datepicker-header-color: $dark-color-text-regular,
+    datepicker-icon-color: $dark-color-text-primary,
+    datepicker-border-color: $dark-disabled-border-base,
     datepicker-inner-border-color: #e4e4e4,
-    datepicker-cell-hover-color: #fff,
+    datepicker-inrange-color: $dark-border-color-extra-light,
+    datepicker-inrange-hover-color: $dark-border-color-extra-light,
+    datepicker-active-color: $dark-color-primary,
+    datepicker-text-hover-color: $dark-color-primary,
+    datepicker-cell-hover-color: $color-white,
+
+    scrollbar-background-color: rgba($dark-color-text-secondary, .3),
+    scrollbar-hover-background-color: rgba($dark-color-text-secondary, .5),
+
     carousel-arrow-background: rgba(31, 45, 61, 0.11),
-    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23)
+    carousel-arrow-hover-background: rgba(31, 45, 61, 0.23),
+
+    collapse-border-color: $dark-border-color-lighter,
+    collapse-header-fill: $color-white,
+    collapse-header-color: $dark-color-text-primary,
+    collapse-content-fill: $color-white,
+    collapse-content-color: $dark-color-text-primary,
+
+    transfer-border-color: $dark-border-color-lighter,
+    transfer-panel-header-background: $dark-background-color,
+    transfer-item-hover-background: $dark-color-text-secondary
   )
 );
 

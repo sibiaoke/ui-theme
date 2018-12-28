@@ -14,27 +14,27 @@ body {
 
 a {
   @include themify($themes) {
-    color: themed('link-blue-color');
+    color: themed('link-color');
   }
   text-decoration: none;
 
   &:hover,
   &:focus {
     @include themify($themes) {
-      color: mix($--color-white, themed('link-blue-color'), $--button-hover-tint-percent);
+      color: mix($--color-white, themed('link-color'), $--button-hover-tint-percent);
     }
   }
 
   &:active {
     @include themify($themes) {
-      color: mix($--color-black, themed('link-blue-color'), $--button-active-shade-percent);
+      color: mix($--color-black, themed('link-color'), $--button-active-shade-percent);
     }
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
   @include themifySelf($themes) {
-    color: themed('text-color');
+    color: themed('color-text-primary');
   }
   font-weight: inherit;
 
