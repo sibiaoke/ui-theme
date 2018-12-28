@@ -888,12 +888,12 @@ $themes: (
     notification-warning-color: $dark-color-warning,
     notification-danger-color: $dark-color-danger,
 
-    input-color: $dark-color-text-regular,
+    input-color: $dark-color-text-primary,
     input-border-color: $dark-border-color-base,
     input-border-color-hover: $dark-border-color-hover,
-    input-fill: $color-white,
-    input-fill-disabled: $dark-disabled-fill-base,
-    input-color-disabled: $dark-font-color-disabled-base,
+    input-fill: #212121,
+    input-fill-disabled: #2C2C2C,
+    input-color-disabled: $dark-color-text-placeholder,
     input-icon-color: $dark-color-text-placeholder,
     input-placeholder-color: $dark-color-text-placeholder,
 
@@ -903,9 +903,9 @@ $themes: (
     input-focus-border: $dark-color-primary,
     input-focus-fill: $color-white,
 
-    input-disabled-fill: $dark-disabled-fill-base,
+    input-disabled-fill: #2C2C2C,
     input-disabled-border: $dark-disabled-border-base,
-    input-disabled-color: $dark-disabled-color-base,
+    input-disabled-color: rgba($dark-color-text-primary, 0.6),
     input-disabled-placeholder-color: $dark-color-text-placeholder,
 
     cascader-menu-border-color: $dark-border-color-base,
