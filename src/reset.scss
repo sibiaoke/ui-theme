@@ -13,21 +13,29 @@ body {
 }
 
 a {
-  color: $--color-primary;
+  @include themify($themes) {
+    color: themed('link-blue-color');
+  }
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+    @include themify($themes) {
+      color: mix($--color-white, themed('link-blue-color'), $--button-hover-tint-percent);
+    }
   }
 
   &:active {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    @include themify($themes) {
+      color: mix($--color-black, themed('link-blue-color'), $--button-active-shade-percent);
+    }
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $--color-text-regular;
+  @include themifySelf($themes) {
+    color: themed('text-color');
+  }
   font-weight: inherit;
 
   &:first-child {
