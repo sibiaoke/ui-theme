@@ -3,16 +3,14 @@
 @import "mixins/button";
 @import "mixins/mixins";
 @import "mixins/utils";
+@import 'mixins/themes';
 
 @include b(button) {
   display: inline-block;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  background: $--button-default-fill;
   border: $--border-base;
-  border-color: $--button-default-border;
-  color: $--button-default-color;
   -webkit-appearance: none;
   text-align: center;
   box-sizing: border-box;
@@ -20,6 +18,11 @@
   margin: 0;
   transition: .1s;
   font-weight: $--button-font-weight;
+  @include themify($themes) {
+    background: themed('button-default-fill');
+    border-color: themed('button-default-border');
+    color: themed('button-default-color');
+  }
   @include utils-user-select(none);
   & + & {
     margin-left: 10px;
@@ -29,15 +32,20 @@
 
   &:hover,
   &:focus {
-    color: $--color-primary;
-    border-color: $--color-primary-light-7;
-    background-color: $--color-primary-light-9;
+    @include themify($themes) {
+      color: $--color-black;
+      border-color: themed('color-text-primary');
+      background-color: themed('color-text-primary');
+    }
   }
 
   &:active {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    @include themify($themes) {
+      color: $--color-black;
+      border-color: mix($--color-black, themed('button-default-border'), $--button-active-shade-percent);
+    }
     outline: none;
+    opacity: 0.7;
   }
 
   &::-moz-focus-inner {
@@ -54,45 +62,59 @@
     &:hover,
     &:focus {
       background: $--color-white;
-      border-color: $--color-primary;
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-primary');
+        border-color: themed('color-primary');
+      }
     }
 
     &:active {
       background: $--color-white;
-      border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      @include themify($themes) {
+        border-color: mix($--color-black, themed('color-primary'), $--button-active-shade-percent);
+        color: mix($--color-black, themed('color-primary'), $--button-active-shade-percent);
+      }
       outline: none;
     }
   }
 
   @include when(active) {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    @include themify($themes) {
+      color: mix($--color-black, themed('color-primary'), $--button-active-shade-percent);
+      border-color: mix($--color-black, themed('color-primary'), $--button-active-shade-percent);
+    }
   }
 
   @include when(disabled) {
     &,
     &:hover,
-    &:focus {
-      color: $--button-disabled-color;
+    &:focus,
+    &:active {
+      @include themify($themes) {
+        color: themed('button-disabled-color');
+        border-color: themed('button-disabled-border');
+        background-color: themed('button-disabled-fill');
+      }
+      opacity: 1;
       cursor: not-allowed;
       background-image: none;
-      background-color: $--button-disabled-fill;
-      border-color: $--button-disabled-border;
     }
 
     &.el-button--text {
-      background-color: transparent;
+      @include themify($themes) {
+        background-color: transparent;
+      }
     }
 
     &.is-plain {
       &,
       &:hover,
       &:focus {
+        @include themify($themes) {
+          color: themed('button-disabled-color');
+          border-color: themed('button-disabled-border');
+        }
         background-color: $--color-white;
-        border-color: $--button-disabled-border;
-        color: $--button-disabled-color;
       }
     }
   }
@@ -122,16 +144,24 @@
     padding: $--button-padding-vertical;
   }
   @include m(primary) {
-    @include button-variant($--button-primary-color, $--button-primary-fill, $--button-primary-border);
+    @include themify($themes) {
+      @include button-variant(themed('button-primary-color'), themed('button-primary-fill'), themed('button-primary-border'));
+    }
   }
   @include m(success) {
-    @include button-variant($--button-success-color, $--button-success-fill, $--button-success-border);
+    @include themify($themes) {
+      @include button-variant(themed('button-success-color'), themed('button-success-fill'), themed('button-success-border'));
+    }
   }
   @include m(warning) {
-    @include button-variant($--button-warning-color, $--button-warning-fill, $--button-warning-border);
+    @include themify($themes) {
+      @include button-variant(themed('button-warning-color'), themed('button-warning-fill'), themed('button-warning-border'));
+    }
   }
   @include m(danger) {
-    @include button-variant($--button-danger-color, $--button-danger-fill, $--button-danger-border);
+    @include themify($themes) {
+      @include button-variant(themed('button-danger-color'), themed('button-danger-fill'), themed('button-danger-border'));
+    }
   }
   @include m(info) {
     @include button-variant($--button-info-color, $--button-info-fill, $--button-info-border);
@@ -155,22 +185,32 @@
     }
   }
   @include m(text) {
-    border-color: transparent;
-    color: $--color-primary;
-    background: transparent;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+      border-color: transparent;
+      background: transparent;
+      border-bottom: 1px dashed themed('border-color-base');
+    }
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 2px;
 
     &:hover,
     &:focus {
-      color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
-      border-color: transparent;
-      background-color: transparent;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+        border-color: transparent;
+        background-color: transparent;
+        border-bottom: 1px solid themed('color-primary');
+      }
     }
     &:active {
-      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-      border-color: transparent;
-      background-color: transparent;
+      @include themify($themes) {
+        color: themed('color-text-secondary');
+        border-color: transparent;
+        background-color: transparent;
+        border-bottom: 1px solid themed('color-primary');
+      }
     }
 
     &.is-disabled,
@@ -234,7 +274,7 @@
       z-index: 1;
     }
   }
-  
+
   & > .el-dropdown {
     & > .el-button {
       border-top-left-radius: 0;
