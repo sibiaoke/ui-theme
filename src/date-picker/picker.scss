@@ -37,12 +37,32 @@
     cursor: pointer;
   }
 
+  .el-input__suffix .el-input__icon {
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
+
+    &:hover {
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
+    }
+  }
+
+  .el-input__icon.el-icon-date {
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
+  }
   .el-range__icon {
     font-size: 14px;
     margin-left: -5px;
-    color: $--color-text-placeholder;
     float: left;
     line-height: 32px;
+
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
   }
 
   .el-range-input {
@@ -56,10 +76,16 @@
     width: 39%;
     text-align: center;
     font-size: $--font-size-base;
-    color: $--color-text-regular;
+
+    @include themify($themes) {
+      color: themed('color-text-primary');
+      background: transparent;
+    }
 
     &::placeholder {
-      color: $--color-text-placeholder;
+      @include themify($themes) {
+        color: themed('color-text-placeholder');
+      }
     }
   }
 
@@ -72,16 +98,26 @@
     line-height: 32px;
     font-size: 14px;
     width: 5%;
-    color: $--color-text-primary;
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
   }
 
   .el-range__close-icon {
     font-size: 14px;
-    color: $--color-text-placeholder;
     width: 25px;
-    display: inline-block;
     float: right;
     line-height: 32px;
+
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
+
+    &:hover {
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
+    }
   }
 }
 
@@ -97,10 +133,14 @@
   }
 
   @include when(active) {
-    border-color: $--color-primary;
+    @include themify($themes) {
+      border-color: themed('color-primary');
+    }
 
     &:hover {
-      border-color: $--color-primary;
+      @include themify($themes) {
+        border-color: themed('color-primary');
+      }
     }
   }
 
@@ -165,26 +205,39 @@
   }
 
   @include when(disabled) {
-    background-color: $--input-disabled-fill;
-    border-color: $--input-disabled-border;
-    color: $--input-disabled-color;
     cursor: not-allowed;
 
+    @include themify($themes) {
+      background-color: themed('input-disabled-fill');
+      border-color: themed('input-disabled-border');
+      color: themed('input-disabled-color');
+    }
+
     &:hover, &:focus {
-      border-color: $--input-disabled-border;
+      @include themify($themes) {
+        border-color: themed('input-disabled-border');
+      }
     }
 
     input {
-      background-color: $--input-disabled-fill;
-      color: $--input-disabled-color;
       cursor: not-allowed;
+
+      @include themify($themes) {
+        background-color: themed('input-disabled-fill');
+        color: themed('input-disabled-color');
+      }
+
       &::placeholder {
-        color: $--input-disabled-placeholder-color;
+        @include themify($themes) {
+          color: themed('input-disabled-placeholder-color');
+        }
       }
     }
 
     .el-range-separator {
-      color: $--input-disabled-color;
+      @include themify($themes) {
+        color: themed('input-disabled-color');
+      }
     }
   }
 }

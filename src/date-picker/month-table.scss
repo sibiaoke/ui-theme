@@ -11,12 +11,18 @@
     cursor: pointer;
 
     &.disabled .cell {
-      background-color: $--background-color-base;
       cursor: not-allowed;
-      color: $--color-text-placeholder;
+
+      @include themify($themes) {
+        background-color: themed('background-color');
+        color: themed('color-text-placeholder');
+      }
 
       &:hover {
-        color: $--color-text-placeholder;
+        @include themify($themes) {
+          background-color: themed('background-color');
+          color: themed('color-text-placeholder');
+        }
       }
     }
 
@@ -25,16 +31,24 @@
       height: 32px;
       display: block;
       line-height: 32px;
-      color: $--datepicker-color;
       margin: 0 auto;
 
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
+
       &:hover {
-        color: $--datepicker-text-hover-color;
+        @include themify($themes) {
+          background-color: themed('background-color-secondary');
+        }
       }
     }
 
     &.current:not(.disabled) .cell {
-      color: $--datepicker-active-color;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+        border-bottom: 2px solid themed('datepicker-active-color');
+      }
     }
   }
 }

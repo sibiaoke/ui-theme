@@ -44,6 +44,7 @@ $themes: (
     link-hover-color: $chalk-link-hover-color,
 
     background-color: $chalk-background-color,
+    background-color-secondary: darken($chalk-background-color, 20%),
 
     border-color-base: $chalk-border-color-base,
     border-color-light: $chalk-border-color-light,
@@ -401,6 +402,7 @@ $themes: (
     link-hover-color: $light-link-hover-color,
 
     background-color: $light-background-color,
+    background-color-secondary: darken($light-background-color, 20%),
 
     border-color-base: $light-border-color-base,
     border-color-light: $light-border-color-light,
@@ -758,6 +760,7 @@ $themes: (
     link-hover-color: $dark-link-hover-color,
 
     background-color: $dark-background-color,
+    background-color-secondary: lighten($dark-background-color, 20%),
 
     border-color-base: $dark-border-color-base,
     border-color-light: $dark-border-color-light,
@@ -1046,15 +1049,15 @@ $themes: (
 
     datepicker-color: $dark-color-text-regular,
     datepicker-off-color: $dark-color-text-placeholder,
-    datepicker-header-color: $dark-color-text-regular,
-    datepicker-icon-color: $dark-color-text-primary,
+    datepicker-header-color: rgba($dark-color-text-primary, 0.4),
+    datepicker-icon-color: rgba($dark-color-text-primary, 0.4),
     datepicker-border-color: $dark-disabled-border-base,
     datepicker-inner-border-color: #e4e4e4,
-    datepicker-inrange-color: $dark-border-color-extra-light,
-    datepicker-inrange-hover-color: $dark-border-color-extra-light,
+    datepicker-inrange-color: $dark-color-primary-light-5,
+    datepicker-inrange-hover-color: $dark-color-primary-light-5,
     datepicker-active-color: $dark-color-primary,
-    datepicker-text-hover-color: $dark-color-primary,
-    datepicker-cell-hover-color: $color-white,
+    datepicker-text-hover-color: $dark-color-text-primary,
+    datepicker-cell-hover-color: $dark-color-text-primary,
 
     scrollbar-background-color: rgba($dark-color-text-secondary, .3),
     scrollbar-hover-background-color: rgba($dark-color-text-secondary, .5),

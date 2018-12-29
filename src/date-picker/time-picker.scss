@@ -2,9 +2,6 @@
 
 @include b(time-panel) {
   margin: 5px 0;
-  border: solid 1px $--datepicker-border-color;
-  background-color: $--color-white;
-  box-shadow: $--box-shadow-light;
   border-radius: 2px;
   position: absolute;
   width: 180px;
@@ -12,6 +9,12 @@
   z-index: $--index-top;
   user-select: none;
   box-sizing: content-box;
+
+  @include themify($themes) {
+    border: solid 1px themed('datepicker-border-color');
+    background-color: themed('background-color');
+    box-shadow: themed('box-shadow-light');
+  }
 
   @include e(content) {
     font-size: 0;
@@ -30,8 +33,12 @@
       box-sizing: border-box;
       padding-top: 6px;
       text-align: left;
-      border-top: 1px solid $--border-color-light;
-      border-bottom: 1px solid $--border-color-light;
+
+      @include themify($themes) {
+        border-top: 1px solid themed('border-color-light');
+        border-bottom: 1px solid themed('border-color-light');
+      }
+
     }
 
     &::after {
@@ -58,12 +65,14 @@
   }
 
   @include e(footer) {
-    border-top: 1px solid $--datepicker-inner-border-color;
     padding: 4px;
     height: 36px;
     line-height: 25px;
     text-align: right;
     box-sizing: border-box;
+    @include themify($themes) {
+      border-top: 1px solid themed('datepicker-inner-border-color');
+    }
   }
 
   @include e(btn) {
@@ -75,11 +84,15 @@
     background-color: transparent;
     outline: none;
     font-size: 12px;
-    color: $--color-text-primary;
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
 
     &.confirm {
       font-weight: 800;
-      color: $--datepicker-active-color;
+      @include themify($themes) {
+        color: themed('datepicker-active-color');
+      }
     }
   }
 }

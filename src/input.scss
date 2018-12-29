@@ -61,6 +61,20 @@
       }
     }
   }
+
+  .el-textarea__inner {
+    &.hkjs--dirty {
+      @include themify($themes) {
+        border-left: 2px solid themed('link-blue-color');
+      }
+    }
+
+    &:read-only {
+      border: 0;
+      padding-left: 0;
+      background: transparent;
+    }
+  }
 }
 
 @include b(input) {

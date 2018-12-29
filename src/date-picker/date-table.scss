@@ -9,10 +9,14 @@
     .el-date-table__row {
       &:hover {
         div {
-          background-color: $--datepicker-inrange-color;
+          @include themify($themes) {
+            background-color: themed('datepicker-inrange-color');
+          }
         }
         td.available:hover {
-          color: $--datepicker-color;
+          @include themify($themes) {
+            color: themed('datepicker-color');
+          }
         }
         td:first-child div {
           margin-left: 5px;
@@ -27,7 +31,9 @@
       }
 
       &.current div {
-        background-color: $--datepicker-inrange-color;
+        @include themify($themes) {
+          background-color: themed('datepicker-inrange-color');
+        }
       }
     }
   }
@@ -56,96 +62,149 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      border-radius: 50%;
     }
 
     &.next-month,
     &.prev-month {
-      color: $--datepicker-off-color;
-    }
-
-    &.today {
-      position: relative;
-      span {
-        color: $--color-primary;
-        font-weight: bold;
-      }
-      &.start-date span,
-      &.end-date span {
-        color: $--color-white;
+      @include themify($themes) {
+        color: themed('datepicker-off-color');
       }
     }
 
     &.available:hover {
-      color: $--datepicker-text-hover-color;
-    }
-
-    &.in-range div {
-      background-color: $--datepicker-inrange-color;
-      &:hover {
-        background-color: $--datepicker-inrange-hover-color;
+      @include themify($themes) {
+        background-color: themed('background-color-secondary');
       }
     }
 
-    &.current:not(.disabled) span {
-      color: $--color-white;
-      background-color: $--datepicker-active-color;
+    &.in-range div {
+      @include themify($themes) {
+        background-color: themed('datepicker-inrange-color');
+      }
+      &:hover {
+        @include themify($themes) {
+          background-color: themed('datepicker-inrange-hover-color');
+        }
+      }
+    }
+
+    &.current:not(.disabled) {
+      span {
+        @include themify($themes) {
+          color: themed('color-text-primary');
+          border-bottom: 2px solid themed('datepicker-active-color');
+        }
+      }
+
+      &.today span {
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
+      }
     }
     &.start-date div,
     &.end-date div {
-      color: $--color-white;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
     }
 
     &.start-date span,
     &.end-date span {
-      background-color: $--datepicker-active-color;
+      @include themify($themes) {
+        background-color: themed('datepicker-active-color');
+      }
     }
 
     &.start-date div {
       margin-left: 5px;
       border-top-left-radius: 15px;
       border-bottom-left-radius: 15px;
+
+      > span {
+        border-radius: 50%;
+        @include themify($themes) {
+          color: themed('datepicker-cell-hover-color');
+          background-color: themed('datepicker-active-color');
+        }
+      }
     }
 
     &.end-date div {
       margin-right: 5px;
       border-top-right-radius: 15px;
       border-bottom-right-radius: 15px;
+
+      > span {
+        border-radius: 50%;
+        @include themify($themes) {
+          color: themed('datepicker-cell-hover-color');
+          background-color: themed('datepicker-active-color');
+        }
+      }
     }
 
     &.disabled div {
-      background-color: $--background-color-base;
+      @include themify($themes) {
+        background-color: themed('background-color');
+        color: themed('color-text-placeholder');
+      }
       opacity: 1;
       cursor: not-allowed;
-      color: $--color-text-placeholder;
     }
 
     &.selected div {
       margin-left: 5px;
       margin-right: 5px;
-      background-color: $--datepicker-inrange-color;
       border-radius: 15px;
+      @include themify($themes) {
+        background-color: themed('datepicker-inrange-color');
+      }
       &:hover {
-        background-color: $--datepicker-inrange-hover-color;
+        @include themify($themes) {
+          background-color: themed('datepicker-inrange-hover-color');
+        }
       }
     }
 
     &.selected span {
-      background-color: $--datepicker-active-color;
-      color: $--color-white;
+      @include themify($themes) {
+        background-color: themed('datepicker-active-color');
+        color: themed('color-text-primary');
+      }
       border-radius: 15px;
     }
 
     &.week {
       font-size: 80%;
-      color: $--datepicker-header-color;
+      @include themify($themes) {
+        color: themed('datepicker-header-color');
+      }
+    }
+
+    &.today {
+      position: relative;
+      span {
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
+        font-weight: bold;
+      }
+      // &.start-date span,
+      // &.end-date span {
+      //   @include themify($themes) {
+      //     color: themed('color-text-primary');
+      //   }
+      // }
     }
   }
 
   th {
     padding: 5px;
-    color: $--datepicker-header-color;
     font-weight: 400;
-    border-bottom: solid 1px $--border-color-lighter;
+    @include themify($themes) {
+      color: themed('datepicker-header-color');
+    }
+    // border-bottom: solid 1px $--border-color-lighter;
   }
 }

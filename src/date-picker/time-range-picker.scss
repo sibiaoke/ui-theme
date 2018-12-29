@@ -26,6 +26,8 @@
 
   @include e(body) {
     border-radius:2px;
-    border: 1px solid $--datepicker-border-color;
+    @include themify($themes) {
+      border: 1px solid themed('datepicker-border-color');
+    }
   }
 }

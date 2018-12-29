@@ -47,9 +47,11 @@
     margin: 0;
     padding: 16px;
 
-    @include when(left) {
-      border-right: 1px solid $--datepicker-inner-border-color;
-    }
+    // @include when(left) {
+    //   @include themify($themes) {
+    //     border-right: 1px solid themed('datepicker-inner-border-color');
+    //   }
+    // }
 
     @include when(right) {
       .el-date-range-picker__header {
@@ -73,18 +75,24 @@
 
   @include e(time-header) {
     position: relative;
-    border-bottom: 1px solid $--datepicker-inner-border-color;
     font-size: 12px;
     padding: 8px 5px 5px 5px;
     display: table;
     width: 100%;
     box-sizing: border-box;
 
+    @include themify($themes) {
+      border-bottom: 1px solid themed('datepicker-inner-border-color');
+    }
+
     > .el-icon-arrow-right {
       font-size: 20px;
       vertical-align: middle;
       display: table-cell;
-      color: $--datepicker-icon-color;
+
+      @include themify($themes) {
+        color: themed('datepicker-icon-color');
+      }
     }
   }
 
@@ -98,7 +106,9 @@
       top: 13px;
       right: 0;
       z-index: 1;
-      background: $--color-white;
+      @include themify($themes) {
+        background: themed('background-color');
+      }
     }
   }
 }

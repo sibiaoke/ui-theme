@@ -29,15 +29,16 @@
       }
 
       .el-time-spinner__item:hover:not(.disabled):not(.active) {
-        background: $--color-white;
         cursor: default;
+        @include themify($themes) {
+          background: themed('background-color');
+        }
       }
     }
   }
 
   @include e(arrow) {
     font-size: 12px;
-    color: $--color-text-secondary;
     position: absolute;
     left: 0;
     width: 100%;
@@ -46,9 +47,14 @@
     height: 30px;
     line-height: 30px;
     cursor: pointer;
+    @include themify($themes) {
+      color: themed('color-text-secondary');
+    }
 
     &:hover {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
     }
 
     &.el-icon-arrow-up {
@@ -90,20 +96,28 @@
     height: 32px;
     line-height: 32px;
     font-size: 12px;
-    color: $--color-text-regular;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
 
     &:hover:not(.disabled):not(.active) {
-      background: $--background-color-base;
+      @include themify($themes) {
+        background: themed('background-color');
+      }
       cursor: pointer;
     }
 
     &.active:not(.disabled) {
-      color: $--color-text-primary;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
       font-weight: bold;
     }
 
     &.disabled {
-      color: $--color-text-placeholder;
+      @include themify($themes) {
+        color: themed('color-text-placeholder');
+      }
       cursor: not-allowed;
     }
   }
