@@ -834,23 +834,23 @@ $themes: (
     select-disabled-border: $dark-disabled-border-base,
     select-close-hover-color: $dark-color-text-secondary,
 
-    select-input-color: $dark-color-text-placeholder,
+    select-input-color: $dark-color-text-primary,
     select-multiple-input-color: #666,
     select-input-focus-background: $dark-color-primary,
 
-    select-option-color: $dark-color-text-regular,
+    select-option-color: $dark-color-text-primary,
     select-option-disabled-color: $dark-color-text-placeholder,
-    select-option-disabled-background: $color-white,
-    select-option-hover-background: $dark-disabled-fill-base,
+    select-option-disabled-background: transparent,
+    select-option-hover-background: $dark-link-color,
     select-option-selected: $dark-color-primary,
     select-option-selected-hover: $dark-disabled-fill-base,
 
     select-group-color: $dark-color-info,
 
-    select-dropdown-background: $color-white,
+    select-dropdown-background: $dark-background-color,
     select-dropdown-shadow: $dark-box-shadow-light,
     select-dropdown-empty-color: #999,
-    select-dropdown-border: solid 1px $dark-border-color-light,
+    select-dropdown-border: solid 1px $dark-border-color-base,
 
     alert-success-color: $dark-color-success-lighter,
     alert-info-color: $dark-color-info-lighter,
@@ -988,8 +988,8 @@ $themes: (
     pagination-hover-fill: $dark-color-primary,
     pagination-hover-color: $color-white,
 
-    popover-fill: $color-white,
-    popover-border-color: $dark-border-color-lighter,
+    popover-fill: $dark-background-color,
+    popover-border-color: $dark-border-color-base,
     popover-title-color: $dark-color-text-primary,
 
     tooltip-fill: $dark-color-text-primary,
@@ -1025,8 +1025,8 @@ $themes: (
     tree-expand-icon-color: $dark-color-text-placeholder,
 
     dropdown-menu-box-shadow: $dark-box-shadow-light,
-    dropdown-menuItem-hover-fill: $dark-color-primary-light-9,
-    dropdown-menuItem-hover-color: $dark-link-color,
+    dropdown-menuItem-hover-fill: $dark-link-color,
+    dropdown-menuItem-hover-color: $dark-color-text-primary,
 
     badge-fill: $dark-color-danger,
 

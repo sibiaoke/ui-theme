@@ -24,7 +24,10 @@
         right: $gap;
         bottom: 12px;
         height: 1px;
-        background: $--border-color-light;
+
+        @include themify($themes) {
+          background-color: themed('border-color-light');
+        }
       }
     }
   }

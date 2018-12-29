@@ -30,14 +30,20 @@
     bottom: -$--popover-arrow-size;
     left: 50%;
     margin-right: #{$--tooltip-arrow-size / 2};
-    border-top-color: $--popover-border-color;
     border-bottom-width: 0;
+
+    @include themify($themes) {
+      border-top-color: themed('popover-border-color');
+    }
 
     &::after {
       bottom: 1px;
       margin-left: -$--popover-arrow-size;
-      border-top-color: $--popover-fill;
       border-bottom-width: 0;
+
+      @include themify($themes) {
+        border-top-color: themed('popover-fill');
+      }
     }
   }
 
@@ -50,13 +56,18 @@
     left: 50%;
     margin-right: #{$--tooltip-arrow-size / 2};
     border-top-width: 0;
-    border-bottom-color: $--popover-border-color;
+
+    @include themify($themes) {
+      border-bottom-color: themed('popover-border-color');
+    }
 
     &::after {
       top: 1px;
       margin-left: -$--popover-arrow-size;
       border-top-width: 0;
-      border-bottom-color: $--popover-fill;
+      @include themify($themes) {
+        border-bottom-color: themed('popover-fill');
+      }
     }
   }
 
@@ -68,14 +79,19 @@
     top: 50%;
     left: -$--popover-arrow-size;
     margin-bottom: #{$--tooltip-arrow-size / 2};
-    border-right-color: $--popover-border-color;
     border-left-width: 0;
+
+    @include themify($themes) {
+      border-right-color: themed('popover-border-color');
+    }
 
     &::after {
       bottom: -$--popover-arrow-size;
       left: 1px;
-      border-right-color: $--popover-fill;
       border-left-width: 0;
+      @include themify($themes) {
+        border-right-color: themed('popover-fill');
+      }
     }
   }
 
@@ -88,14 +104,19 @@
     right: -$--popover-arrow-size;
     margin-bottom: #{$--tooltip-arrow-size / 2};
     border-right-width: 0;
-    border-left-color: $--popover-border-color;
+
+    @include themify($themes) {
+      border-left-color: themed('popover-border-color');
+    }
 
     &::after {
       right: 1px;
       bottom: -$--popover-arrow-size;
       margin-left: -$--popover-arrow-size;
       border-right-width: 0;
-      border-left-color: $--popover-fill;
+      @include themify($themes) {
+        border-left-color: themed('popover-fill');
+      }
     }
   }
 }

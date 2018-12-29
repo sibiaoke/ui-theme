@@ -5,20 +5,27 @@
 @include b(select-dropdown) {
   position: absolute;
   z-index: #{$--index-top + 1};
-  border: $--select-dropdown-border;
   border-radius: $--border-radius-base;
-  background-color: $--select-dropdown-background;
-  box-shadow: $--select-dropdown-shadow;
   box-sizing: border-box;
   margin: 5px 0;
 
+  @include themify($themes) {
+    border: themed('select-dropdown-border');
+    background-color: themed('select-dropdown-background');
+    box-shadow: themed('select-dropdown-shadow');
+  }
+
   @include when(multiple) {
     & .el-select-dropdown__item.selected {
-      color: $--select-option-selected;
-      background-color: $--select-dropdown-background;
+      @include themify($themes) {
+        color: themed('select-option-selected');
+        background-color: themed('select-dropdown-background');
+      }
 
       &.hover {
-        background-color: $--select-option-hover-background;
+        @include themify($themes) {
+          background-color: themed('select-option-hover-background');
+        }
       }
 
       &::after {
@@ -43,8 +50,11 @@
   padding: $--select-dropdown-empty-padding;
   margin: 0;
   text-align: center;
-  color: $--select-dropdown-empty-color;
   font-size: $--select-font-size;
+
+  @include themify($themes) {
+    color: themed('select-dropdown-empty-color');
+  }
 }
 
 @include b(select-dropdown__wrap) {
