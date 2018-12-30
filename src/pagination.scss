@@ -6,9 +6,12 @@
 @include b(pagination) {
   white-space: nowrap;
   padding: 2px 5px;
-  color: $--pagination-color;
   font-weight: bold;
   @include utils-clearfix;
+
+  @include themify($themes) {
+    color: themed('pagination-color');
+  }
 
   span:not([class*=suffix]),
   button {
@@ -53,13 +56,18 @@
     }
 
     &:hover {
-      color: $--pagination-hover-fill;
+      @include themify($themes) {
+        color: themed('pagination-hover-fill');
+      }
     }
 
     &:disabled {
-      color: $--pagination-button-disabled-color;
-      background-color: $--pagination-button-disabled-fill;
       cursor: not-allowed;
+
+      @include themify($themes) {
+        color: themed('pagination-button-disabled-color');
+        background-color: themed('pagination-button-disabled-fill');
+      }
     }
   }
 
@@ -67,10 +75,13 @@
   .btn-next {
     background: center center no-repeat;
     background-size: 16px;
-    background-color: $--pagination-fill;
     cursor: pointer;
     margin: 0;
-    color: $--pagination-button-color;
+
+    @include themify($themes) {
+      background-color: themed('pagination-fill');
+      color: themed('pagination-button-color');
+    }
 
     .el-icon {
       display: block;
@@ -84,12 +95,14 @@
   }
 
   .btn-next {
-    padding-left: 12px;    
+    padding-left: 12px;
   }
 
   .el-pager li.disabled {
-    color: $--color-text-placeholder;
     cursor: not-allowed;
+    @include themify($themes) {
+      color: themed('color-text-placeholder');
+    }
   }
 
   @include m(small) {
@@ -132,14 +145,18 @@
   @include e(sizes) {
     margin: 0 10px 0 0;
     font-weight: normal;
-    color: $--color-text-regular;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
 
     .el-input .el-input__inner {
       font-size: $--pagination-font-size;
       padding-left: 8px;
 
       &:hover {
-        border-color: $--pagination-hover-fill;
+        @include themify($themes) {
+          border-color: themed('pagination-hover-fill;')
+        }
       }
     }
   }
@@ -147,13 +164,17 @@
   @include e(total) {
     margin-right: 10px;
     font-weight: normal;
-    color: $--color-text-regular;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
   }
 
   @include e(jump) {
     margin-left: 24px;
     font-weight: normal;
-    color: $--color-text-regular;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
 
     .el-input__inner {
       padding: 0 3px;
@@ -168,7 +189,7 @@
     line-height: 18px;
     padding: 0 2px;
     height: $--pagination-button-height;
-      
+
     text-align: center;
     margin: 0 2px;
     box-sizing: border-box;
@@ -194,13 +215,17 @@
     .btn-next,
     .el-pager li {
       margin: 0 5px;
-      background-color: $--color-info-lighter;
-      color: $--color-text-regular;
       min-width: 30px;
       border-radius: 2px;
+      @include themify($themes) {
+        color: themed('color-text-regular');
+        background-color: themed('background-color-secondary');
+      }
 
       &.disabled {
-        color: $--color-text-placeholder;
+        @include themify($themes) {
+          color: themed('color-text-placeholder');
+        }
       }
     }
 
@@ -208,18 +233,24 @@
       padding: 0;
 
       &:disabled {
-        color: $--color-text-placeholder;
+        @include themify($themes) {
+          color: themed('color-text-placeholder');
+        }
       }
     }
 
     .el-pager li:not(.disabled) {
       &:hover {
-        color: $--pagination-hover-fill;
+        @include themify($themes) {
+          color: themed('pagination-hover-fill');
+        }
       }
 
       &.active {
-        background-color: $--color-primary;
-        color: $--color-white;
+        @include themify($themes) {
+          background-color: themed('color-primary');
+          color: themed('color-text-primary');
+        }
       }
     }
 
@@ -249,7 +280,6 @@
 
   li {
     padding: 0 4px;
-    background: $--pagination-fill;
     vertical-align: top;
     display: inline-block;
     font-size: $--pagination-font-size;
@@ -260,14 +290,21 @@
     box-sizing: border-box;
     text-align: center;
     margin: 0;
+    @include themify($themes) {
+      background: themed('pagination-fill');
+    }
 
     &.btn-quicknext,
     &.btn-quickprev {
       line-height: 28px;
-      color: $--pagination-button-color;
+      @include themify($themes) {
+        color: themed('pagination-button-color');
+      }
 
       &.disabled {
-        color: $--color-text-placeholder;
+        @include themify($themes) {
+          color: themed('color-text-placeholder');
+        }
       }
     }
 
@@ -284,11 +321,15 @@
     }
 
     &:hover {
-      color: $--pagination-hover-fill;
+      @include themify($themes) {
+        color: themed('pagination-hover-fill');
+      }
     }
 
     &.active {
-      color: $--pagination-hover-fill;
+      @include themify($themes) {
+        color: themed('pagination-hover-fill');
+      }
       cursor: default;
     }
   }
