@@ -94,6 +94,7 @@ $themes: (
 
     radio-color: $chalk-color-text-regular,
     radio-input-fill: $color-white,
+    radio-input-border: $chalk-border-base,
     radio-input-border-color: $chalk-border-color-base,
     radio-icon-color: $color-white,
 
@@ -452,6 +453,7 @@ $themes: (
 
     radio-color: $light-color-text-regular,
     radio-input-fill: $color-white,
+    radio-input-border: $light-border-base,
     radio-input-border-color: $light-border-color-base,
     radio-icon-color: $color-white,
 
@@ -809,7 +811,8 @@ $themes: (
     checkbox-button-checked-border-color: $dark-color-primary,
 
     radio-color: $dark-color-text-regular,
-    radio-input-fill: $color-white,
+    radio-input-fill: $dark-background-color,
+    radio-input-border: $dark-border-base,
     radio-input-border-color: $dark-border-color-base,
     radio-icon-color: $color-white,
 
@@ -821,12 +824,12 @@ $themes: (
     radio-disabled-checked-input-fill: $dark-disabled-fill-base,
     radio-disabled-checked-icon-color: $dark-color-text-placeholder,
 
-    radio-checked-text-color: $dark-color-primary,
-    radio-checked-input-border-color: $dark-color-primary,
-    radio-checked-input-fill: $color-white,
-    radio-checked-icon-color: $dark-color-primary,
+    radio-checked-text-color: $dark-color-text-primary,
+    radio-checked-input-border-color: $dark-border-color-base,
+    radio-checked-input-fill: $dark-color-primary,
+    radio-checked-icon-color: $dark-background-color,
 
-    radio-input-border-color-hover: $dark-color-primary,
+    radio-input-border-color-hover: $dark-border-color-hover,
 
     radio-button-checked-fill: $dark-color-primary,
     radio-button-checked-color: $color-white,

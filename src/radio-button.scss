@@ -12,11 +12,8 @@
     line-height: 1;
     white-space: nowrap;
     vertical-align: middle;
-    background: $--button-default-fill;
-    border: $--border-base;
     font-weight: $--button-font-weight;
     border-left: 0;
-    color: $--button-default-color;
     -webkit-appearance: none;
     text-align: center;
     box-sizing: border-box;
@@ -26,10 +23,18 @@
     cursor: pointer;
     transition: $--all-transition;
 
+    @include themify($themes) {
+      background: themed('button-default-fill');
+      border: themed('border-base');
+      color: themed('button-default-color');
+    }
+
     @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, 0);
 
     &:hover {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('input-hover-border');
+      }
     }
 
     & [class*="el-icon-"] {
@@ -43,7 +48,9 @@
 
   &:first-child {
     .el-radio-button__inner {
-      border-left: $--border-base;
+      @include themify($themes) {
+        border-left: themed('border-base');
+      }
       border-radius: $--border-radius-base 0 0 $--border-radius-base;
       box-shadow: none !important;
     }
@@ -57,24 +64,31 @@
 
     &:checked {
       & + .el-radio-button__inner {
-        color: $--radio-button-checked-color;
-        background-color: $--radio-button-checked-fill;
-        border-color: $--radio-button-checked-border-color;
-        box-shadow: -1px 0 0 0 $--radio-button-checked-border-color;
+        @include themify($themes) {
+          color: themed('radio-button-checked-color');
+          background-color: themed('radio-button-checked-fill');
+          border-color: themed('radio-button-checked-border-color');
+          box-shadow: -1px 0 0 0 themed('radio-button-checked-border-color');
+        }
       }
     }
 
     &:disabled {
       & + .el-radio-button__inner {
-        color: $--button-disabled-color;
         cursor: not-allowed;
-        background-image: none;
-        background-color: $--button-disabled-fill;
-        border-color: $--button-disabled-border;
-        box-shadow: none;
+
+        @include themify($themes) {
+          color: themed('button-disabled-color');
+          background-color: themed('button-disabled-fill');
+          border-color: themed('button-disabled-border');
+          background-image: none;
+          box-shadow: none;
+        }
       }
       &:checked + .el-radio-button__inner {
-        background-color: $--radio-button-disabled-checked-fill;
+        @include themify($themes) {
+          background-color: themed('radio-button-disabled-checked-fill');
+        }
       }
     }
   }
@@ -108,6 +122,8 @@
   }
 
   &:focus:not(.is-focus):not(:active):not(.is-disabled){ /*获得焦点时 样式提醒*/
-    box-shadow: 0 0 2px 2px $--radio-button-checked-border-color;
+    @include themify($themes) {
+      box-shadow: 0 0 2px 2px themed('radio-button-checked-border-color');
+    }
   }
 }

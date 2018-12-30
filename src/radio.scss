@@ -4,7 +4,6 @@
 @import "common/var";
 
 @include b(radio) {
-  color: $--radio-color;
   font-weight: $--radio-font-weight;
   line-height: 1;
   position: relative;
@@ -15,20 +14,31 @@
   font-size: $--font-size-base;
   @include utils-user-select(none);
 
+  @include themify($themes) {
+    color: themed('radio-color');
+  }
+
   @include when(bordered) {
     padding: $--radio-bordered-padding;
     border-radius: $--border-radius-base;
-    border: $--border-base;
     box-sizing: border-box;
     height: $--radio-bordered-height;
 
+    @include themify($themes) {
+      border: themed('border-base');
+    }
+
     &.is-checked {
-      border-color: $--color-primary;
+      @include themify($themes) {
+        border-color: themed('color-primary');
+      }
     }
 
     &.is-disabled {
       cursor: not-allowed;
-      border-color: $--border-color-lighter;
+      @include themify($themes) {
+        border-color: themed('border-color-lighter');
+      }
     }
 
     & + .el-radio.is-bordered {
@@ -94,13 +104,18 @@
 
     @include when(disabled) {
       .el-radio__inner {
-        background-color: $--radio-disabled-input-fill;
-        border-color: $--radio-disabled-input-border-color;
         cursor: not-allowed;
+
+        @include themify($themes) {
+          background-color: themed('radio-disabled-input-fill');
+          border-color: themed('radio-disabled-input-border-color');
+        }
 
         &::after {
           cursor: not-allowed;
-          background-color: $--radio-disabled-icon-color;
+          @include themify($themes) {
+            background-color: themed('radio-disabled-icon-color');
+          }
         }
 
         & + .el-radio__label {
@@ -109,67 +124,102 @@
       }
       &.is-checked {
         .el-radio__inner {
-          background-color: $--radio-disabled-checked-input-fill;
-          border-color: $--radio-disabled-checked-input-border-color;
+          @include themify($themes) {
+            background-color: themed('radio-disabled-checked-input-fill');
+            border-color: themed('radio-disabled-checked-input-border-color');
+          }
 
           &::after {
-            background-color: $--radio-disabled-checked-icon-color;
+            @include themify($themes) {
+              background-color: themed('radio-disabled-checked-icon-color');
+            }
+          }
+
+          &:hover {
+            @include themify($themes) {
+              border-color: themed('radio-disabled-input-border-color');
+            }
           }
         }
       }
       & + span.el-radio__label {
-        color: $--color-text-placeholder;
         cursor: not-allowed;
+        @include themify($themes) {
+          color: themed('color-text-placeholder');
+        }
       }
     }
 
     @include when(checked) {
       .el-radio__inner {
-        border-color: $--radio-checked-input-border-color;
-        background: $--radio-checked-icon-color;
+        @include themify($themes) {
+          border-color: themed('radio-checked-input-border-color');
+          background: themed('radio-checked-icon-color');
+        }
 
         &::after {
           transform: translate(-50%, -50%) scale(1);
+          @include themify($themes) {
+            background-color: themed('radio-checked-input-fill');
+          }
+        }
+
+        &:hover {
+          @include themify($themes) {
+            border-color: themed('radio-input-border-color-hover');
+          }
         }
       }
 
       & + .el-radio__label {
-        color: $--radio-checked-text-color;
+        @include themify($themes) {
+          color: themed('radio-checked-text-color');
+        }
       }
     }
 
     @include when(focus) {
       .el-radio__inner {
-        border-color: $--radio-input-border-color-hover;
+        @include themify($themes) {
+          border-color: themed('radio-input-border-color-hover');
+        }
       }
     }
   }
   @include e(inner) {
-    border: $--radio-input-border;
     border-radius: $--radio-input-border-radius;
     width: $--radio-input-width;
     height: $--radio-input-height;
-    background-color: $--radio-input-fill;
     position: relative;
     cursor: pointer;
     display: inline-block;
     box-sizing: border-box;
 
+    @include themify($themes) {
+      border: themed('radio-input-border');
+      background-color: themed('radio-input-fill');
+    }
+
     &:hover {
-      border-color: $--radio-input-border-color-hover;
+      @include themify($themes) {
+        border-color: themed('radio-input-border-color-hover');
+      }
     }
 
     &::after {
-      width: 4px;
-      height: 4px;
+      width: 7px;
+      height: 7px;
       border-radius: $--radio-input-border-radius;
-      background-color: $--color-white;
       content: "";
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(0);
       transition: transform .15s ease-in;
+
+      @include themify($themes) {
+        background-color: themed('background-color');
+      }
     }
   }
 
@@ -187,7 +237,9 @@
 
   &:focus:not(.is-focus):not(:active):not(.is-disabled) { /*获得焦点时 样式提醒*/
     .el-radio__inner {
-      box-shadow: 0 0 2px 2px $--radio-input-border-color-hover;
+      @include themify($themes) {
+        box-shadow: 0 0 2px 2px themed('radio-input-border-color-hover');
+      }
     }
   }
 
