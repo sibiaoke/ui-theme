@@ -669,9 +669,9 @@ $themes: (
     tag-danger-border: rgba($dark-color-danger, 0.20),
     tag-danger-color: $dark-color-danger,
 
-    tree-node-hover-color: $dark-background-color,
-    tree-text-color: $dark-color-text-regular,
-    tree-expand-icon-color: $dark-color-text-placeholder,
+    tree-node-hover-color: $dark-border-color-base,
+    tree-text-color: $dark-color-text-primary,
+    tree-expand-icon-color: $dark-color-text-primary,
 
     dropdown-menu-box-shadow: $dark-box-shadow-light,
     dropdown-menuItem-hover-fill: $dark-link-color,
