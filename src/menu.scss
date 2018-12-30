@@ -4,10 +4,9 @@
 @import "common/transition";
 
 @mixin menu-item {
-  height: 56px;
-  line-height: 56px;
+  height: 37px;
+  line-height: 37px;
   font-size: $--menu-item-font-size;
-  color: $--menu-item-color;
   padding: 0 20px;
   list-style: none;
   cursor: pointer;
@@ -16,18 +15,26 @@
   box-sizing: border-box;
   white-space: nowrap;
 
+  @include themify($themes) {
+    color: themed('menu-item-color');
+  }
+
   * {
     vertical-align: middle;
   }
 
   i {
-    color: $--color-text-secondary;
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
   }
 
   &:hover,
   &:focus {
     outline: none;
-    background-color: $--menu-item-hover-fill;
+    @include themify($themes) {
+      color: themed('menu-item-hover-fill');
+    }
   }
 
   @include when(disabled) {
@@ -38,16 +45,18 @@
 }
 
 @include b(menu) {
-  border-right: solid 1px #e6e6e6;
+  // border-right: solid 1px #e6e6e6;
   list-style: none;
   position: relative;
   margin: 0;
   padding-left: 0;
-  background-color: $--menu-item-fill;
-  @include utils-clearfix;
-  &.el-menu--horizontal {
-    border-bottom: solid 1px #e6e6e6;
+  @include themify($themes) {
+    background-color: themed('menu-item-fill');
   }
+  @include utils-clearfix;
+  // &.el-menu--horizontal {
+  //   border-bottom: solid 1px #e6e6e6;
+  // }
 
   @include m(horizontal) {
     border-right: none;
@@ -57,7 +66,9 @@
       line-height: 60px;
       margin: 0;
       border-bottom: 2px solid transparent;
-      color: $--color-text-secondary;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
 
       a,
       a:hover {
@@ -66,7 +77,9 @@
 
       &:not(.is-disabled):hover,
       &:not(.is-disabled):focus{
-        background-color: #fff;
+        @include themify($themes) {
+          background-color: themed('background-color');
+        }
       }
     }
     & > .el-submenu {
@@ -76,25 +89,33 @@
       &:hover {
         outline: none;
         .el-submenu__title {
-          color: $--color-text-primary;
+          @include themify($themes) {
+            color: themed('color-text-primary');
+          }
         }
       }
 
       &.is-active {
         .el-submenu__title {
-          border-bottom: 2px solid $--color-primary;
-          color: $--color-text-primary;
+          @include themify($themes) {
+            border-bottom: 2px solid themed('color-primary');
+            color: themed('color-text-primary');
+          }
         }
       }
 
       & .el-submenu__title {
         height: 60px;
         line-height: 60px;
-        border-bottom: 2px solid transparent;
-        color: $--color-text-secondary;
+        @include themify($themes) {
+          border-bottom: 2px solid transparent;
+          color: themed('color-text-primary');
+        }
 
         &:hover {
-          background-color: #fff;
+          @include themify($themes) {
+            background-color: themed('background-color');
+          }
         }
       }
       & .el-submenu__icon-arrow {
@@ -107,26 +128,34 @@
     & .el-menu {
       & .el-menu-item,
       & .el-submenu__title {
-        background-color: $--color-white;
         float: none;
         height: 36px;
         line-height: 36px;
         padding: 0 10px;
-        color: $--color-text-secondary;
+        @include themify($themes) {
+          background-color: themed('background-color');
+          color: themed('color-text-primary');
+        }
       }
       & .el-menu-item.is-active,
       & .el-submenu.is-active > .el-submenu__title {
-        color: $--color-text-primary;
+        @include themify($themes) {
+          color: themed('color-text-primary');
+        }
       }
     }
     & .el-menu-item:not(.is-disabled):hover,
     & .el-menu-item:not(.is-disabled):focus {
       outline: none;
-      color: $--color-text-primary;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
     }
     & > .el-menu-item.is-active {
-      border-bottom: 2px solid $--color-primary;
-      color: $--color-text-primary;
+      @include themify($themes) {
+        border-bottom: 2px solid themed('color-primary');
+        color: themed('color-text-primary');
+      }
     }
   }
   @include m(collapse) {
@@ -168,9 +197,13 @@
         top: 0;
         left: 100%;
         z-index: 10;
-        border: 1px solid $--border-color-light;
         border-radius: $--border-radius-small;
-        box-shadow: $--box-shadow-light;
+
+
+        @include themify($themes) {
+          border: 1px solid themed('border-color-base');
+          box-shadow: themed('box-shadow-light');
+        }
       }
 
       &.is-opened {
@@ -186,7 +219,9 @@
     border: none;
     padding: 5px 0;
     border-radius: $--border-radius-small;
-    box-shadow: $--box-shadow-light;
+    @include themify($themes) {
+      box-shadow: themed('box-shadow-light');
+    }
 
     &-bottom-start {
       margin-top: 5px;
@@ -208,13 +243,16 @@
     vertical-align: middle;
   }
   @include when(active) {
-    color: $--color-primary;
+    @include themify($themes) {
+      color: themed('color-text-primary');
+      background-color: themed('color-primary');
+    }
     i {
       color: inherit;
     }
   }
 }
-  
+
 @include b(submenu) {
   list-style: none;
   margin: 0;
@@ -224,19 +262,39 @@
     @include menu-item;
 
     &:hover {
-      background-color: $--menu-item-hover-fill;
+      @include themify($themes) {
+        color: themed('menu-item-hover-fill');
+      }
+    }
+
+    > div:first-child:before {
+      position: absolute;
+      top: 50%;
+      margin-top: -7px;
+      margin-left: -20px;
+      transition: transform .3s;
+      font-size: 12px;
+      content: "\E603";
+      font-family: 'element-icons' !important;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      transform: rotate(-90deg);
     }
   }
   & .el-menu {
     border: none;
   }
   & .el-menu-item {
-    height: 50px;
-    line-height: 50px;
+    height: 37px;
+    line-height: 37px;
     padding: 0 45px;
     min-width: 200px;
   }
   @include e(icon-arrow) {
+    display: none !important;
     position: absolute;
     top: 50%;
     right: 20px;
@@ -246,12 +304,24 @@
   }
   @include when(active) {
     .el-submenu__title {
-      border-bottom-color: $--color-primary;
+
+      @include themify($themes) {
+        border-bottom-color: themed('color-primary');
+      }
+    }
+
+    > .el-submenu__title {
+      @include themify($themes) {
+        color: themed('menu-item-hover-fill');
+      }
     }
   }
   @include when(opened) {
     > .el-submenu__title .el-submenu__icon-arrow {
-      transform: rotateZ(180deg);
+      transform: rotate(180deg);
+    }
+    > .el-submenu__title > div:first-child:before {
+      transform: rotate(0);
     }
   }
   @include when(disabled) {
@@ -279,7 +349,9 @@
     padding: 7px 0 7px 20px;
     line-height: normal;
     font-size: 12px;
-    color: $--color-text-secondary;
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
   }
 }
 

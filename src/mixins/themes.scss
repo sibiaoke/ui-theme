@@ -687,9 +687,9 @@ $themes: (
     slider-stop-background-color: $color-white,
     slider-disable-color: $dark-color-text-placeholder,
 
-    menu-item-color: $dark-color-text-primary,
-    menu-item-fill: $color-white,
-    menu-item-hover-fill: $dark-color-primary-light-9,
+    menu-item-color: rgba($dark-color-text-primary, .8),
+    menu-item-fill: $dark-background-color,
+    menu-item-hover-fill: $dark-color-text-primary,
 
     rate-icon-color: $dark-color-text-placeholder,
 
