@@ -11,9 +11,14 @@
   flex: 1;
   width: 100%;
   max-width: 100%;
-  background-color: $--color-white;
+
   font-size: 14px;
-  color: $--table-text-color;
+
+
+  @include themify($themes) {
+    background-color: themed('background-color');
+    color: themed('table-text-color');
+  }
 
   // 数据为空
   @include e(empty-block) {
@@ -28,7 +33,9 @@
 
   @include e(empty-text) {
     width: 50%;
-    color: $--color-text-secondary;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
   }
 
   // 展开行
@@ -42,10 +49,13 @@
   @include e(expand-icon) {
     position: relative;
     cursor: pointer;
-    color: #666;
     font-size: 12px;
     transition: transform 0.2s ease-in-out;
     height: 20px;
+
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
 
     @include m(expanded) {
       transform: rotate(90deg);
@@ -61,7 +71,9 @@
   }
 
   @include e(expanded-cell) {
-    background-color: $--color-white;
+    @include themify($themes) {
+      background-color: themed('background-color');
+    }
 
     // 纯属为了增加权重
     &[class*=cell] {
@@ -74,8 +86,8 @@
   }
 
   @include m(fit) {
-    border-right: 0;
-    border-bottom: 0;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
 
     th.gutter, td.gutter {
       border-right-width: 1px;
@@ -95,12 +107,17 @@
   }
 
   thead {
-    color: $--table-header-color;
+    @include themify($themes) {
+      color: themed('table-header-color');
+    }
+
     font-weight: 500;
 
     &.is-group {
       th {
-        background: $--background-color-base;
+        @include themify($themes) {
+          background: themed('background-color');
+        }
       }
     }
   }
@@ -157,15 +174,31 @@
   }
 
   tr {
-    background-color: $--color-white;
+    @include themify($themes) {
+      background-color: themed('background-color');
+    }
 
     input[type="checkbox"] {
       margin: 0;
     }
   }
 
-  th.is-leaf, td {
-    border-bottom: $--table-border;
+  th.is-leaf {
+    @include themify($themes) {
+      border-bottom: themed('table-border');
+    }
+  }
+
+  td {
+    @include themify($themes) {
+      border-bottom: 1px solid rgba(themed('table-border-color'), 0.6);
+    }
+  }
+
+  &[dashed] td {
+    @include themify($themes) {
+      border-bottom: 1px dashed rgba(themed('table-border-color'), 0.6);
+    }
   }
 
   th.is-sortable {
@@ -176,7 +209,9 @@
     white-space: nowrap;
     overflow: hidden;
     user-select: none;
-    background-color: $--table-header-background;
+    @include themify($themes) {
+      background-color: themed('table-header-background');
+    }
 
     div {
       display: inline-block;
@@ -199,7 +234,9 @@
       box-sizing: border-box;
 
       &.highlight {
-        color: $--color-primary;
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
       }
     }
 
@@ -209,9 +246,11 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #ff4d51;
       margin-right: 5px;
       vertical-align: middle;
+      @include themify($themes) {
+        background: themed('color-danger');
+      }
     }
   }
 
@@ -243,13 +282,17 @@
 
   // 拥有多级表头
   @include m((group, border)) {
-    border: $--table-border;
+    @include themify($themes) {
+      border: themed('table-border');
+    }
 
     @include share-rule(border-pseudo) {
       content: '';
       position: absolute;
-      background-color: $--table-border-color;
       z-index: 1;
+      @include themify($themes) {
+        background-color: themed('table-border-color');
+      }
     }
 
     // 表格右部伪 border
@@ -273,15 +316,19 @@
 
   // table--border
   @include m(border) {
-    border-right: none;
-    border-bottom: none;
+    border-right: none !important;
+    border-bottom: none !important;
 
     &.el-loading-parent--relative {
-      border-color: transparent;
+      @include themify($themes) {
+        border-color: transparent;
+      }
     }
 
     th, td {
-      border-right: $--table-border;
+      @include themify($themes) {
+        border-right: themed('table-border');
+      }
 
       &:first-child .cell {
         padding-left: 10px;
@@ -289,12 +336,16 @@
     }
 
     th.gutter:last-of-type {
-      border-bottom: $--table-border;
+      @include themify($themes) {
+        border-bottom: themed('table-border');
+      }
       border-bottom-width: 1px;
     }
 
     & th {
-      border-bottom: $--table-border;
+      @include themify($themes) {
+        border-bottom: themed('table-border');
+      }border-bottom: $--table-border;
     }
   }
 
@@ -308,7 +359,10 @@
     left: 0;
     overflow-x: hidden;
     overflow-y: hidden;
-    box-shadow: $--table-fixed-box-shadow;
+
+    @include themify($themes) {
+      box-shadow: themed('table-fixed-box-shadow');
+    }
 
     &::before {
       content: '';
@@ -317,8 +371,10 @@
       bottom: 0;
       width: 100%;
       height: 1px;
-      background-color: $--border-color-lighter;
       z-index: 4;
+      @include themify($themes) {
+        background-color: themed('table-border-color');
+      }
     }
   }
 
@@ -326,8 +382,11 @@
     position: absolute;
     top: -1px;
     right: 0;
-    background-color: $--color-white;
-    border-bottom: $--table-border;
+
+    @include themify($themes) {
+      background-color: themed('background-color');
+      border-bottom: themed('table-border');
+    }
   }
 
   @include e(fixed-right) {
@@ -357,9 +416,11 @@
     z-index: 3;
 
     & tbody td {
-      border-top: $--table-border;
-      background-color: $--table-row-hover-background;
-      color: $--table-text-color;
+      @include themify($themes) {
+        border-top: themed('table-border');
+        background-color: themed('table-row-hover-background');
+        color: themed('table-text-color');
+      }
     }
   }
 
@@ -378,7 +439,9 @@
   @include e(footer-wrapper) {
     margin-top: -1px;
     td {
-      border-top: $--table-border;
+      @include themify($themes) {
+        border-top: themed('table-border');
+      }
     }
   }
 
@@ -391,8 +454,10 @@
     overflow: hidden;
 
     & tbody td {
-      background-color: $--table-row-hover-background;
-      color: $--table-text-color;
+      @include themify($themes) {
+        background-color: themed('table-row-hover-background');
+        color: themed('table-text-color');
+      }
     }
   }
 
@@ -422,13 +487,17 @@
     .el-table--border {
       @include when(scrolling-right) {
         ~ .el-table__fixed-right {
-          border-left: $--table-border;
+          @include themify($themes) {
+            border-left: themed('table-border');
+          }
         }
       }
 
       @include when(scrolling-left) {
         ~ .el-table__fixed {
-          border-right: $--table-border;
+          @include themify($themes) {
+            border-right: themed('table-border');
+          }
         }
       }
     }
@@ -454,22 +523,30 @@
     left: 7px;
 
     &.ascending {
-      border-bottom-color: $--color-text-placeholder;
+      @include themify($themes) {
+        border-bottom-color: themed('color-text-placeholder');
+      }
       top: 5px;
     }
 
     &.descending {
-      border-top-color: $--color-text-placeholder;
+      @include themify($themes) {
+        border-top-color: themed('color-text-placeholder');
+      }
       bottom: 7px;
     }
   }
 
   .ascending .sort-caret.ascending {
-    border-bottom-color: $--color-primary;
+    @include themify($themes) {
+      border-bottom-color: themed('color-text-primary');
+    }
   }
 
   .descending .sort-caret.descending {
-    border-top-color: $--color-primary;
+    @include themify($themes) {
+      border-top-color: themed('color-text-primary');
+    }
   }
 
   .hidden-columns {
@@ -482,11 +559,15 @@
     & .el-table__body {
       & tr.el-table__row--striped {
         td {
-          background: #FAFAFA;
+          @include themify($themes) {
+            background: themed('table-striped-background');
+          }
         }
 
         &.current-row td {
-          background-color: $--table-current-row-background;
+          @include themify($themes) {
+            background-color: themed('table-current-row-background');
+          }
         }
       }
     }
@@ -497,14 +578,18 @@
       &, &.el-table__row--striped {
         &, &.current-row {
           > td {
-            background-color: $--table-current-row-background;
+            @include themify($themes) {
+              background-color: themed('table-current-row-background');
+            }
           }
         }
       }
     }
 
     tr.current-row > td {
-      background-color: $--table-current-row-background;
+      @include themify($themes) {
+        background-color: themed('table-current-row-background');
+      }
     }
   }
 
@@ -514,8 +599,11 @@
     top: 0;
     bottom: 0;
     width: 0;
-    border-left: $--table-border;
     z-index: 10;
+
+    @include themify($themes) {
+      border-left: themed('table-border');
+    }
   }
 
   @include e(column-filter-trigger) {
@@ -524,7 +612,9 @@
     cursor: pointer;
 
     & i {
-      color: $--color-info;
+      @include themify($themes) {
+        color: themed('color-text-regular');
+      }
       font-size: 12px;
       transform: scale(.75);
     }
@@ -538,7 +628,9 @@
 
   @include m(enable-row-hover) {
     .el-table__body tr:hover > td {
-      background-color: $--table-row-hover-background;
+      @include themify($themes) {
+        background-color: themed('table-row-hover-background');
+      }
     }
   }
 
