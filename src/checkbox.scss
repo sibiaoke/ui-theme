@@ -4,7 +4,6 @@
 @import "mixins/utils";
 
 @include b(checkbox) {
-  color: $--checkbox-color;
   font-weight: $--checkbox-font-weight;
   font-size: $--font-size-base;
   position: relative;
@@ -13,20 +12,31 @@
   white-space: nowrap;
   user-select: none;
 
+  @include themify($themes) {
+    color: themed('checkbox-color');
+  }
+
   @include when(bordered) {
     padding: $--checkbox-bordered-padding;
     border-radius: $--border-radius-base;
-    border: $--border-base;
     box-sizing: border-box;
     line-height: normal;
     height: $--checkbox-bordered-height;
 
+    @include themify($themes) {
+      border: themed('border-base');
+    }
+
     &.is-checked {
-      border-color: $--color-primary;
+      @include themify($themes) {
+        border-color: themed('color-primary');
+      }
     }
 
     &.is-disabled {
-      border-color: $--border-color-lighter;
+      @include themify($themes) {
+        border-color: themed('border-color-lighter');
+      }
       cursor: not-allowed;
     }
 
@@ -103,13 +113,24 @@
 
     @include when(disabled) {
       .el-checkbox__inner {
-        background-color: $--checkbox-disabled-input-fill;
-        border-color: $--checkbox-disabled-input-border-color;
         cursor: not-allowed;
+
+        @include themify($themes) {
+          background-color: themed('checkbox-disabled-input-fill');
+          border-color: themed('checkbox-disabled-input-border-color');
+        }
 
         &::after {
           cursor: not-allowed;
-          border-color: $--checkbox-disabled-icon-color;
+          @include themify($themes) {
+            border-color: themed('checkbox-disabled-icon-color');
+          }
+        }
+
+        &:hover {
+          @include themify($themes) {
+            border-color: themed('checkbox-disabled-input-border-color');
+          }
         }
 
         & + .el-checkbox__label {
@@ -119,67 +140,106 @@
 
       &.is-checked {
         .el-checkbox__inner {
-          background-color: $--checkbox-disabled-checked-input-fill;
-          border-color: $--checkbox-disabled-checked-input-border-color;
+          @include themify($themes) {
+            background-color: themed('checkbox-disabled-checked-input-fill');
+            border-color: themed('checkbox-disabled-checked-input-fill');
+          }
 
           &::after {
-            border-color: $--checkbox-disabled-checked-icon-color;
+            @include themify($themes) {
+              border-color: themed('checkbox-disabled-checked-icon-color');
+            }
+          }
+
+          &:hover {
+            @include themify($themes) {
+              border-color: themed('checkbox-disabled-checked-input-fill');
+            }
           }
         }
       }
 
       &.is-indeterminate {
         .el-checkbox__inner {
-          background-color: $--checkbox-disabled-checked-input-fill;
-          border-color: $--checkbox-disabled-checked-input-border-color;
+          @include themify($themes) {
+            background-color: themed('checkbox-disabled-checked-input-fill');
+            border-color: themed('checkbox-disabled-checked-input-fill');
+          }
 
           &::before {
-            background-color: $--checkbox-disabled-checked-icon-color;
-            border-color: $--checkbox-disabled-checked-icon-color;
+            @include themify($themes) {
+              background-color: themed('checkbox-disabled-checked-icon-color');
+              border-color: themed('checkbox-disabled-checked-icon-color');
+            }
+          }
+
+          &:hover {
+            @include themify($themes) {
+              border-color: themed('checkbox-disabled-checked-input-fill');
+            }
           }
         }
       }
 
       & + span.el-checkbox__label {
-        color: $--disabled-color-base;
+        @include themify($themes) {
+          color: themed('disabled-color-base');
+        }
         cursor: not-allowed;
       }
     }
 
     @include when(checked) {
       .el-checkbox__inner {
-        background-color: $--checkbox-checked-input-fill;
-        border-color: $--checkbox-checked-input-border-color;
+        @include themify($themes) {
+          background-color: themed('checkbox-checked-input-fill');
+          border-color: themed('checkbox-checked-input-fill');
+        }
 
         &::after {
           transform: rotate(45deg) scaleY(1);
         }
+
+        &:hover {
+          @include themify($themes) {
+            border-color: themed('checkbox-checked-input-fill');
+          }
+        }
       }
 
       & + .el-checkbox__label {
-        color: $--checkbox-checked-text-color;
+        @include themify($themes) {
+          color: themed('checkbox-checked-text-color');
+        }
       }
     }
     @include when(focus) { /*focus时 视觉上区分*/
       .el-checkbox__inner {
-        border-color: $--checkbox-input-border-color-hover;
+        @include themify($themes) {
+          border-color: themed('checkbox-input-border-color-hover');
+        }
       }
     }
     @include when(indeterminate) {
       .el-checkbox__inner {
-        background-color: $--checkbox-checked-input-fill;
-        border-color: $--checkbox-checked-input-border-color;
+        @include themify($themes) {
+          background-color: themed('checkbox-checked-input-fill');
+          border-color: themed('checkbox-checked-input-fill');
+        }
 
         &::before {
           content: '';
           position: absolute;
           display: block;
-          background-color: $--checkbox-checked-icon-color;
-          height: 2px;
+          height: 4px;
           transform: scale(0.5);
           left: 0;
           right: 0;
-          top: 5px;
+          top: 4px;
+
+          @include themify($themes) {
+            background-color: themed('checkbox-checked-icon-color');
+          }
         }
 
         &::after {
@@ -191,26 +251,28 @@
   @include e(inner) {
     display: inline-block;
     position: relative;
-    border: $--checkbox-input-border;
     border-radius: $--checkbox-input-border-radius;
     box-sizing: border-box;
     width: $--checkbox-input-width;
     height: $--checkbox-input-height;
-    background-color: $--checkbox-input-fill;
     z-index: $--index-normal;
     transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46),
     background-color .25s cubic-bezier(.71,-.46,.29,1.46);
 
+    @include themify($themes) {
+      border: themed('checkbox-input-border');
+      background-color: themed('checkbox-input-fill');
+    }
+
     &:hover {
-      border-color: $--checkbox-input-border-color-hover;
+      @include themify($themes) {
+        border-color: themed('checkbox-input-border-color-hover');
+      }
     }
 
     &::after {
       box-sizing: content-box;
       content: "";
-      border: 1px solid $--checkbox-checked-icon-color;
-      border-left: 0;
-      border-top: 0;
       height: 7px;
       left: 4px;
       position: absolute;
@@ -219,6 +281,12 @@
       width: 3px;
       transition: transform .15s ease-in .05s;
       transform-origin: center;
+
+      @include themify($themes) {
+        border: 2px solid themed('checkbox-checked-icon-color');
+        border-left: 0;
+        border-top: 0;
+      }
     }
   }
 
@@ -255,10 +323,7 @@
     white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
-    background: $--button-default-fill;
-    border: $--border-base;
     border-left: 0;
-    color: $--button-default-color;
     -webkit-appearance: none;
     text-align: center;
     box-sizing: border-box;
@@ -266,12 +331,20 @@
     margin: 0;
     position: relative;
     transition: $--all-transition;
+    @include themify($themes) {
+      background: themed('button-default-fill');
+      border: themed('border-base');
+      color: themed('button-default-color');
+    }
+
     @include utils-user-select(none);
 
     @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, 0);
 
     &:hover {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
     }
 
     & [class*="el-icon-"] {
@@ -293,41 +366,55 @@
 
   &.is-checked {
     & .el-checkbox-button__inner {
-      color: $--checkbox-button-checked-color;
-      background-color: $--checkbox-button-checked-fill;
-      border-color: $--checkbox-button-checked-border-color;
-      box-shadow: -1px 0 0 0 $--color-primary-light-4;
+      @include themify($themes) {
+        color: themed('checkbox-button-checked-color');
+        background-color: themed('checkbox-button-checked-fill');
+        border-color: themed('checkbox-button-checked-border-color');
+        box-shadow: -1px 0 0 0 themed('color-primary-light-4');
+      }
     }
     &:first-child .el-checkbox-button__inner {
-      border-left-color: $--checkbox-button-checked-border-color;
+      @include themify($themes) {
+        border-left-color: themed('checkbox-button-checked-border-color');
+      }
     }
   }
 
   &.is-disabled {
     & .el-checkbox-button__inner {
-      color: $--button-disabled-color;
       cursor: not-allowed;
-      background-image: none;
-      background-color: $--button-disabled-fill;
-      border-color: $--button-disabled-border;
-      box-shadow: none;
+
+      @include themify($themes) {
+        color: themed('button-disabled-color');
+        background-image: none;
+        background-color: themed('button-disabled-fill');
+        border-color: themed('button-disabled-border');
+        box-shadow: none;
+      }
     }
     &:first-child .el-checkbox-button__inner {
-      border-left-color: $--button-disabled-border;
+      @include themify($themes) {
+        border-left-color: themed('button-disabled-border');
+      }
     }
   }
 
   &:first-child {
     .el-checkbox-button__inner {
-      border-left: $--border-base;
       border-radius: $--border-radius-base 0 0 $--border-radius-base;
       box-shadow: none !important;
+
+      @include themify($themes) {
+        border-left: themed('border-base');
+      }
     }
   }
 
   &.is-focus {
     & .el-checkbox-button__inner {
-      border-color: $--checkbox-button-checked-border-color;
+      @include themify($themes) {
+        border-color: themed('checkbox-button-checked-border-color');
+      }
     }
   }
 

@@ -70,6 +70,7 @@ $themes: (
 
     checkbox-color: $chalk-color-text-regular,
     checkbox-input-fill: $color-white,
+    checkbox-input-border: $chalk-border-base,
     checkbox-input-border-color: $chalk-border-color-base,
     checkbox-icon-color: $color-white,
 
@@ -429,6 +430,7 @@ $themes: (
 
     checkbox-color: $light-color-text-regular,
     checkbox-input-fill: $color-white,
+    checkbox-input-border: $light-border-base,
     checkbox-input-border-color: $light-border-color-base,
     checkbox-icon-color: $color-white,
 
@@ -787,24 +789,25 @@ $themes: (
     icon-color-base: $dark-icon-color-base,
 
     checkbox-color: $dark-color-text-regular,
-    checkbox-input-fill: $color-white,
+    checkbox-input-fill: $dark-background-color,
+    checkbox-input-border: $dark-border-base,
     checkbox-input-border-color: $dark-border-color-base,
     checkbox-icon-color: $color-white,
 
-    checkbox-disabled-input-border-color: $dark-border-color-base,
-    checkbox-disabled-input-fill: #edf2fc,
-    checkbox-disabled-icon-color: $dark-color-text-placeholder,
+    checkbox-disabled-input-border-color: $dark-disabled-border-base,
+    checkbox-disabled-input-fill: $dark-disabled-fill-base,
+    checkbox-disabled-icon-color: $dark-disabled-fill-base,
 
-    checkbox-disabled-checked-input-fill: $dark-border-color-extra-light,
+    checkbox-disabled-checked-input-fill: $dark-disabled-fill-base,
     checkbox-disabled-checked-input-border-color: $dark-border-color-base,
     checkbox-disabled-checked-icon-color: $dark-color-text-placeholder,
 
-    checkbox-checked-text-color: $dark-color-primary,
-    checkbox-checked-input-border-color: $dark-color-primary,
+    checkbox-checked-text-color: $dark-color-text-primary,
+    checkbox-checked-input-border-color: $dark-border-color-base,
     checkbox-checked-input-fill: $dark-color-primary,
-    checkbox-checked-icon-color: $color-white,
+    checkbox-checked-icon-color: $dark-color-text-primary,
 
-    checkbox-input-border-color-hover: $dark-color-primary,
+    checkbox-input-border-color-hover: $dark-border-color-hover,
 
     checkbox-button-checked-fill: $dark-color-primary,
     checkbox-button-checked-color: $color-white,
@@ -898,7 +901,7 @@ $themes: (
     input-border-color: $dark-border-color-base,
     input-border-color-hover: $dark-border-color-hover,
     input-fill: #212121,
-    input-fill-disabled: #2C2C2C,
+    input-fill-disabled: $dark-disabled-fill-base,
     input-color-disabled: $dark-color-text-placeholder,
     input-icon-color: $dark-color-text-primary,
     input-placeholder-color: $dark-color-text-placeholder,
@@ -909,7 +912,7 @@ $themes: (
     input-focus-border: $dark-color-primary,
     input-focus-fill: $color-white,
 
-    input-disabled-fill: #2C2C2C,
+    input-disabled-fill: $dark-disabled-fill-base,
     input-disabled-border: $dark-disabled-border-base,
     input-disabled-color: rgba($dark-color-text-primary, 0.6),
     input-disabled-placeholder-color: $dark-color-text-placeholder,
