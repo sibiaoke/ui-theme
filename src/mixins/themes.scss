@@ -253,8 +253,10 @@ $themes: (
 
     switch-on-color: $light-color-primary,
     switch-off-color: $light-border-color-base,
+    switch-off-background-color: $light-border-color-base,
     switch-disabled-color: $light-border-color-lighter,
     switch-disabled-text-color: $light-color-text-placeholder,
+    switch-border-color-hover: $light-border-color-hover,
 
     dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
     dialog-close-hover-color: $light-color-primary,
@@ -613,8 +615,10 @@ $themes: (
 
     switch-on-color: $dark-color-primary,
     switch-off-color: $dark-border-color-base,
-    switch-disabled-color: $dark-border-color-lighter,
+    switch-off-background-color: $dark-background-color,
+    switch-disabled-color: $dark-disabled-fill-base,
     switch-disabled-text-color: $dark-color-text-placeholder,
+    switch-border-color-hover: $dark-border-color-hover,
 
     dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
     dialog-close-hover-color: $dark-color-primary,
