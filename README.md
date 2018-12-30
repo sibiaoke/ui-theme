@@ -1,5 +1,5 @@
 # ui-theme
-> element component theme --- chalk, light and dark.
+> element component theme --- light and dark.
 
 
 ## Installation
@@ -26,7 +26,7 @@ Or
 
 Add theme class to body
 ```html
-<body class="theme-chalk"></body>
+<body class="theme-dark"></body>
 ```
 
 ##  Import on demand
