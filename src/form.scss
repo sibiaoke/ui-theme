@@ -13,7 +13,7 @@
       float: none;
       display: inline-block;
       text-align: left;
-      padding: 0 0 10px 0;
+      padding: 0;
     }
   }
   @include m(inline) {
@@ -89,10 +89,13 @@
     vertical-align: middle;
     float: left;
     font-size: 14px;
-    color: $--color-text-regular;
     line-height: 40px;
     padding: 0 12px 0 0;
     box-sizing: border-box;
+
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
   }
   @include e(content) {
     line-height: 40px;
@@ -105,13 +108,15 @@
     }
   }
   @include e(error) {
-    color: $--color-danger;
     font-size: 12px;
     line-height: 1;
     padding-top: 4px;
     position: absolute;
     top: 100%;
     left: 0;
+    @include themify($themes) {
+      color: themed('color-text-regular');
+    }
 
     @include m(inline) {
       position: relative;
@@ -126,8 +131,10 @@
     @include pseudo('not(.is-no-asterisk)') {
       & > .el-form-item__label:before {
         content: '*';
-        color: $--color-danger;
         margin-right: 4px;
+        @include themify($themes) {
+          color: themed('color-danger');
+        }
       }
     }
   }
@@ -135,8 +142,13 @@
   @include when(error) {
     & .el-input__inner,
     & .el-textarea__inner {
-      &, &:focus {
-        border-color: $--color-danger;
+      @include themify($themes) {
+        border-left: 2px solid themed('color-danger');
+      }
+      &:focus {
+        @include themify($themes) {
+          border-color: themed('color-danger');
+        }
       }
     }
     & .el-input-group__append,
@@ -146,14 +158,21 @@
       }
     }
     .el-input__validateIcon {
-      color: $--color-danger;
+      @include themify($themes) {
+        color: themed('color-danger');
+      }
     }
   }
   @include when(success) {
     & .el-input__inner,
     & .el-textarea__inner {
-      &, &:focus {
-        border-color: $--color-success;
+      @include themify($themes) {
+        border-left: 2px solid themed('color-success');
+      }
+      &:focus {
+        @include themify($themes) {
+          border-color: themed('color-success');
+        }
       }
     }
     & .el-input-group__append,
@@ -163,7 +182,9 @@
       }
     }
     .el-input__validateIcon {
-      color: $--color-success;
+      @include themify($themes) {
+        color: themed('color-success');
+      }
     }
   }
   @include m(feedback) {
