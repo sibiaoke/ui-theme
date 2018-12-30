@@ -711,10 +711,10 @@ $themes: (
     carousel-arrow-background: rgba(31, 45, 61, 0.11),
     carousel-arrow-hover-background: rgba(31, 45, 61, 0.23),
 
-    collapse-border-color: $dark-border-color-lighter,
-    collapse-header-fill: $color-white,
+    collapse-border-color: $dark-border-color-base,
+    collapse-header-fill: $dark-background-color,
     collapse-header-color: $dark-color-text-primary,
-    collapse-content-fill: $color-white,
+    collapse-content-fill: $dark-background-color,
     collapse-content-color: $dark-color-text-primary,
 
     transfer-border-color: $dark-border-color-lighter,
