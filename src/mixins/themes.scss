@@ -167,6 +167,7 @@ $themes: (
     notification-shadow: $light-box-shadow-light,
     notification-border-color: $light-border-color-lighter,
     notification-color: $light-color-text-regular,
+    notification-background-color: #fafafa,
     notification-title-color: $light-color-text-primary,
 
     notification-close-color: $light-color-text-secondary,
@@ -524,12 +525,13 @@ $themes: (
     message-danger-color: $dark-color-danger,
 
     notification-shadow: $dark-box-shadow-light,
-    notification-border-color: $dark-border-color-lighter,
-    notification-color: $dark-color-text-regular,
+    notification-border-color: $dark-border-color-base,
+    notification-color: $dark-color-text-primary,
+    notification-background-color: #333,
     notification-title-color: $dark-color-text-primary,
 
-    notification-close-color: $dark-color-text-secondary,
-    notification-close-hover-color: $dark-color-text-regular,
+    notification-close-color: rgba($dark-color-text-primary, .4),
+    notification-close-hover-color: $dark-color-text-primary,
 
     notification-success-color: $dark-color-success,
     notification-info-color: $dark-color-info,

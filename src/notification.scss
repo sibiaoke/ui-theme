@@ -7,12 +7,15 @@
   padding: $--notification-padding;
   border-radius: $--notification-radius;
   box-sizing: border-box;
-  border: 1px solid $--notification-border-color;
   position: fixed;
-  background-color: $--color-white;
-  box-shadow: $--notification-shadow;
   transition: opacity .3s, transform .3s, left .3s, right .3s, top 0.4s, bottom .3s;
   overflow: hidden;
+
+  @include themify($themes) {
+    border: 1px solid themed('notification-border-color');
+    background-color: themed('notification-background-color');
+    box-shadow: themed('notification-shadow');
+  }
 
   &.right {
     right: 16px;
@@ -29,16 +32,22 @@
   @include e(title) {
     font-weight: bold;
     font-size: $--notification-title-font-size;
-    color: $--notification-title-color;
     margin: 0;
+
+    @include themify($themes) {
+      color: themed('notification-title-color');
+    }
   }
 
   @include e(content) {
     font-size: $--notification-font-size;
     line-height: 21px;
     margin: 6px 0 0 0;
-    color: $--notification-color;
     text-align: justify;
+
+    @include themify($themes) {
+      color: themed('notification-color');
+    }
 
     p {
       margin: 0;
@@ -56,28 +65,41 @@
     top: 18px;
     right: 15px;
     cursor: pointer;
-    color: $--notification-close-color;
     font-size: $--notification-close-font-size;
 
+    @include themify($themes) {
+      color: themed('notification-close-color');
+    }
+
     &:hover {
-      color: $--notification-close-hover-color;
+      @include themify($themes) {
+        color: themed('notification-close-hover-color');
+      }
     }
   }
 
   .el-icon-success {
-    color: $--notification-success-color;
+    @include themify($themes) {
+      color: themed('notification-success-color');
+    }
   }
 
   .el-icon-error {
-    color: $--notification-danger-color;
+    @include themify($themes) {
+      color: themed('notification-danger-color');
+    }
   }
 
   .el-icon-info {
-    color: $--notification-info-color;
+    @include themify($themes) {
+      color: themed('notification-info-color');
+    }
   }
 
   .el-icon-warning {
-    color: $--notification-warning-color;
+    @include themify($themes) {
+      color: themed('notification-warning-color');
+    }
   }
 }
 
