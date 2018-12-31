@@ -3,7 +3,6 @@
 @import "mixins/button";
 @import "mixins/mixins";
 @import "mixins/utils";
-@import 'mixins/themes';
 
 @include b(button) {
   display: inline-block;

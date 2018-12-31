@@ -226,7 +226,7 @@ $themes: (
 
     button-default-color: $light-color-text-primary,
     button-default-color-hover: $color-white,
-    button-default-fill: $light-background-color,
+    button-default-fill: transparent,
     button-default-border: $light-color-text-primary,
 
     button-disabled-color: $light-color-text-placeholder,
@@ -586,11 +586,11 @@ $themes: (
     tab-vertical-header-count-fill: $dark-color-text-secondary,
 
     button-default-color: $dark-color-text-primary,
-    button-default-fill: $dark-background-color,
+    button-default-color-hover: $color-black,
+    button-default-fill: transparent,
     button-default-border: $dark-color-text-primary,
 
     button-disabled-color: $dark-color-text-placeholder,
-    button-disabled-color-hover: $color-black,
     button-disabled-fill: $dark-background-color,
     button-disabled-border: $dark-color-text-placeholder,
 
