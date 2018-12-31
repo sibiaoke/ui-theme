@@ -33,7 +33,7 @@
   &:hover,
   &:focus {
     @include themify($themes) {
-      color: $--color-black;
+      color: themed('button-default-color-hover');
       border-color: themed('color-text-primary');
       background-color: themed('color-text-primary');
     }
@@ -41,7 +41,7 @@
 
   &:active {
     @include themify($themes) {
-      color: $--color-black;
+      color: themed('button-default-color-hover');
       border-color: mix($--color-black, themed('button-default-border'), $--button-active-shade-percent);
     }
     outline: none;

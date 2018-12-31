@@ -167,7 +167,7 @@
     @include themify($themes) {
       color: themed('color-text-primary');
       border-color: transparent;
-      background-color: lighten(themed('background-color'), 20%);
+      background-color: themed('color-text-info');
     }
 
     &__close.el-icon-close {
@@ -175,7 +175,7 @@
       top: 0;
 
       @include themify($themes) {
-        color: themed('color-text-primary');
+        color: $--color-white;
         background-color: themed('color-text-placeholder');
       }
 

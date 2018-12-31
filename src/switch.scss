@@ -107,6 +107,9 @@
       &::after {
         left: 100%;
         margin-left: -$--switch-button-size - 2px;
+        @include themify($themes) {
+          background-color: $--color-white;
+        }
       }
 
       &:hover {

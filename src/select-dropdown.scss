@@ -24,6 +24,7 @@
 
       &.hover {
         @include themify($themes) {
+          color: themed('dropdown-menuItem-hover-color');
           background-color: themed('select-option-hover-background');
         }
       }

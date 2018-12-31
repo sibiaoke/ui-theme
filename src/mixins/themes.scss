@@ -69,32 +69,32 @@ $themes: (
     icon-color-base: $light-icon-color-base,
 
     checkbox-color: $light-color-text-regular,
-    checkbox-input-fill: $color-white,
+    checkbox-input-fill: $light-background-color,
     checkbox-input-border: $light-border-base,
     checkbox-input-border-color: $light-border-color-base,
     checkbox-icon-color: $color-white,
 
-    checkbox-disabled-input-border-color: $light-border-color-base,
-    checkbox-disabled-input-fill: #edf2fc,
-    checkbox-disabled-icon-color: $light-color-text-placeholder,
+    checkbox-disabled-input-border-color: $light-disabled-border-base,
+    checkbox-disabled-input-fill: $light-disabled-fill-base,
+    checkbox-disabled-icon-color: $light-disabled-fill-base,
 
-    checkbox-disabled-checked-input-fill: $light-border-color-extra-light,
+    checkbox-disabled-checked-input-fill: $light-disabled-fill-base,
     checkbox-disabled-checked-input-border-color: $light-border-color-base,
     checkbox-disabled-checked-icon-color: $light-color-text-placeholder,
 
-    checkbox-checked-text-color: $light-color-primary,
-    checkbox-checked-input-border-color: $light-color-primary,
+    checkbox-checked-text-color: $light-color-text-primary,
+    checkbox-checked-input-border-color: $light-border-color-base,
     checkbox-checked-input-fill: $light-color-primary,
     checkbox-checked-icon-color: $color-white,
 
-    checkbox-input-border-color-hover: $light-color-primary,
+    checkbox-input-border-color-hover: $light-border-color-hover,
 
     checkbox-button-checked-fill: $light-color-primary,
     checkbox-button-checked-color: $color-white,
     checkbox-button-checked-border-color: $light-color-primary,
 
     radio-color: $light-color-text-regular,
-    radio-input-fill: $color-white,
+    radio-input-fill: $light-background-color,
     radio-input-border: $light-border-base,
     radio-input-border-color: $light-border-color-base,
     radio-icon-color: $color-white,
@@ -107,12 +107,12 @@ $themes: (
     radio-disabled-checked-input-fill: $light-disabled-fill-base,
     radio-disabled-checked-icon-color: $light-color-text-placeholder,
 
-    radio-checked-text-color: $light-color-primary,
-    radio-checked-input-border-color: $light-color-primary,
-    radio-checked-input-fill: $color-white,
-    radio-checked-icon-color: $light-color-primary,
+    radio-checked-text-color: $light-color-text-primary,
+    radio-checked-input-border-color: $light-border-color-base,
+    radio-checked-input-fill: $light-color-primary,
+    radio-checked-icon-color: $light-background-color,
 
-    radio-input-border-color-hover: $light-color-primary,
+    radio-input-border-color-hover: $light-border-color-hover,
 
     radio-button-checked-fill: $light-color-primary,
     radio-button-checked-color: $color-white,
@@ -123,23 +123,23 @@ $themes: (
     select-disabled-border: $light-disabled-border-base,
     select-close-hover-color: $light-color-text-secondary,
 
-    select-input-color: $light-color-text-placeholder,
+    select-input-color: $light-color-text-primary,
     select-multiple-input-color: #666,
     select-input-focus-background: $light-color-primary,
 
-    select-option-color: $light-color-text-regular,
+    select-option-color: $light-color-text-primary,
     select-option-disabled-color: $light-color-text-placeholder,
-    select-option-disabled-background: $color-white,
-    select-option-hover-background: $light-disabled-fill-base,
+    select-option-disabled-background: transparent,
+    select-option-hover-background: $light-link-color,
     select-option-selected: $light-color-primary,
     select-option-selected-hover: $light-disabled-fill-base,
 
     select-group-color: $light-color-info,
 
-    select-dropdown-background: $color-white,
+    select-dropdown-background: $light-fill-base,
     select-dropdown-shadow: $light-box-shadow-light,
     select-dropdown-empty-color: #999,
-    select-dropdown-border: solid 1px $light-border-color-light,
+    select-dropdown-border: solid 1px $light-border-color-base,
 
     alert-success-color: $light-color-success-lighter,
     alert-info-color: $light-color-info-lighter,
@@ -165,13 +165,13 @@ $themes: (
     message-danger-color: $light-color-danger,
 
     notification-shadow: $light-box-shadow-light,
-    notification-border-color: $light-border-color-lighter,
-    notification-color: $light-color-text-regular,
-    notification-background-color: #fafafa,
+    notification-border-color: $light-border-color-base,
+    notification-color: $light-color-text-primary,
+    notification-background-color: $light-fill-base,
     notification-title-color: $light-color-text-primary,
 
-    notification-close-color: $light-color-text-secondary,
-    notification-close-hover-color: $light-color-text-regular,
+    notification-close-color: rgba($light-color-text-primary, .4),
+    notification-close-hover-color: $light-color-text-primary,
 
     notification-success-color: $light-color-success,
     notification-info-color: $light-color-info,
@@ -181,10 +181,10 @@ $themes: (
     input-color: $light-color-text-regular,
     input-border-color: $light-border-color-base,
     input-border-color-hover: $light-border-color-hover,
-    input-fill: $color-white,
+    input-fill: $light-fill-base,
     input-fill-disabled: $light-disabled-fill-base,
-    input-color-disabled: $light-font-color-disabled-base,
-    input-icon-color: $light-color-text-placeholder,
+    input-color-disabled: $light-color-text-placeholder,
+    input-icon-color: $light-color-text-primary,
     input-placeholder-color: $light-color-text-placeholder,
 
     input-hover-border: $light-border-color-hover,
@@ -195,7 +195,7 @@ $themes: (
 
     input-disabled-fill: $light-disabled-fill-base,
     input-disabled-border: $light-disabled-border-base,
-    input-disabled-color: $light-disabled-color-base,
+    input-disabled-color: rgba($light-color-text-primary, 0.6),
     input-disabled-placeholder-color: $light-color-text-placeholder,
 
     cascader-menu-border-color: $light-border-color-base,
@@ -224,13 +224,14 @@ $themes: (
     tab-vertical-header-count-color: $color-white,
     tab-vertical-header-count-fill: $light-color-text-secondary,
 
-    button-default-color: $light-color-text-regular,
-    button-default-fill: $color-white,
-    button-default-border: $light-border-color-base,
+    button-default-color: $light-color-text-primary,
+    button-default-color-hover: $color-white,
+    button-default-fill: $light-background-color,
+    button-default-border: $light-color-text-primary,
 
     button-disabled-color: $light-color-text-placeholder,
-    button-disabled-fill: $color-white,
-    button-disabled-border: $light-border-color-lighter,
+    button-disabled-fill: $light-background-color,
+    button-disabled-border: $light-color-text-placeholder,
 
     button-primary-border: $light-color-primary,
     button-primary-color: $color-white,
@@ -254,35 +255,35 @@ $themes: (
 
     switch-on-color: $light-color-primary,
     switch-off-color: $light-border-color-base,
-    switch-off-background-color: $light-border-color-base,
-    switch-disabled-color: $light-border-color-lighter,
+    switch-off-background-color: $light-background-color,
+    switch-disabled-color: $light-disabled-fill-base,
     switch-disabled-text-color: $light-color-text-placeholder,
     switch-border-color-hover: $light-border-color-hover,
 
     dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
-    dialog-close-hover-color: $light-color-primary,
+    dialog-close-hover-color: $light-color-text-primary,
 
-    table-border-color: $light-border-color-lighter,
-    table-border: 1px solid $light-border-color-lighter,
-    table-text-color: $light-color-text-regular,
-    table-header-color: $light-color-text-secondary,
-    table-row-hover-background: $light-background-color,
-    table-current-row-background: $light-color-primary-light-9,
-    table-header-background: $color-white,
-    table-footer-background: $light-color-text-placeholder,
+    table-border-color: $light-border-color-base,
+    table-border: 1px solid $light-border-color-base,
+    table-text-color: $light-color-text-primary,
+    table-header-color: $light-color-text-primary,
+    table-row-hover-background: $light-border-color-base,
+    table-current-row-background: #8FC4F3,
+    table-header-background: $light-background-color,
+    table-footer-background: $light-background-color,
     table-striped-background: #EBEBEB,
     table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12),
 
-    pagination-fill: $color-white,
-    pagination-color: $light-color-text-primary,
-    pagination-button-color: $light-color-text-primary,
+    pagination-fill: $light-background-color,
+    pagination-color: rgba($light-color-text-primary, 0.4),
+    pagination-button-color: rgba($light-color-text-primary, 0.4),
     pagination-button-disabled-color: $light-color-text-placeholder,
-    pagination-button-disabled-fill: $color-white,
-    pagination-hover-fill: $light-color-primary,
-    pagination-hover-color: $color-white,
+    pagination-button-disabled-fill: $light-background-color,
+    pagination-hover-fill: $light-color-text-primary,
+    pagination-hover-color: $light-color-text-primary,
 
-    popover-fill: $color-white,
-    popover-border-color: $light-border-color-lighter,
+    popover-fill: $light-background-color,
+    popover-border-color: $light-border-color-base,
     popover-title-color: $light-color-text-primary,
 
     tag-fill: rgba($light-color-primary, 0.10),
@@ -309,13 +310,13 @@ $themes: (
     tag-danger-border: rgba($light-color-danger, 0.20),
     tag-danger-color: $light-color-danger,
 
-    tree-node-hover-color: $light-background-color,
-    tree-text-color: $light-color-text-regular,
-    tree-expand-icon-color: $light-color-text-placeholder,
+    tree-node-hover-color: $light-border-color-base,
+    tree-text-color: $light-color-text-primary,
+    tree-expand-icon-color: $light-color-text-primary,
 
     dropdown-menu-box-shadow: $light-box-shadow-light,
-    dropdown-menuItem-hover-fill: $light-color-primary-light-9,
-    dropdown-menuItem-hover-color: $light-link-color,
+    dropdown-menuItem-hover-fill: $light-link-color,
+    dropdown-menuItem-hover-color: $color-white,
 
     badge-fill: $light-color-danger,
 
@@ -327,23 +328,23 @@ $themes: (
     slider-stop-background-color: $color-white,
     slider-disable-color: $light-color-text-placeholder,
 
-    menu-item-color: $light-color-text-primary,
-    menu-item-fill: $color-white,
-    menu-item-hover-fill: $light-color-primary-light-9,
+    menu-item-color: rgba($light-color-text-primary, .8),
+    menu-item-fill: $light-background-color,
+    menu-item-hover-fill: $light-color-text-primary,
 
     rate-icon-color: $light-color-text-placeholder,
 
     datepicker-color: $light-color-text-regular,
     datepicker-off-color: $light-color-text-placeholder,
-    datepicker-header-color: $light-color-text-regular,
-    datepicker-icon-color: $light-color-text-primary,
+    datepicker-header-color: rgba($light-color-text-primary, 0.4),
+    datepicker-icon-color: rgba($light-color-text-primary, 0.4),
     datepicker-border-color: $light-disabled-border-base,
     datepicker-inner-border-color: #e4e4e4,
-    datepicker-inrange-color: $light-border-color-extra-light,
-    datepicker-inrange-hover-color: $light-border-color-extra-light,
+    datepicker-inrange-color: $light-color-primary-light-5,
+    datepicker-inrange-hover-color: $light-color-primary-light-5,
     datepicker-active-color: $light-color-primary,
-    datepicker-text-hover-color: $light-color-primary,
-    datepicker-cell-hover-color: $color-white,
+    datepicker-text-hover-color: $light-color-text-primary,
+    datepicker-cell-hover-color: $light-color-text-primary,
 
     scrollbar-background-color: rgba($light-color-text-secondary, .3),
     scrollbar-hover-background-color: rgba($light-color-text-secondary, .5),
@@ -351,10 +352,10 @@ $themes: (
     carousel-arrow-background: rgba(31, 45, 61, 0.11),
     carousel-arrow-hover-background: rgba(31, 45, 61, 0.23),
 
-    collapse-border-color: $light-border-color-lighter,
-    collapse-header-fill: $color-white,
+    collapse-border-color: $light-border-color-base,
+    collapse-header-fill: $light-background-color,
     collapse-header-color: $light-color-text-primary,
-    collapse-content-fill: $color-white,
+    collapse-content-fill: $light-background-color,
     collapse-content-color: $light-color-text-primary,
 
     transfer-border-color: $light-border-color-lighter,
@@ -445,7 +446,7 @@ $themes: (
     checkbox-checked-text-color: $dark-color-text-primary,
     checkbox-checked-input-border-color: $dark-border-color-base,
     checkbox-checked-input-fill: $dark-color-primary,
-    checkbox-checked-icon-color: $dark-color-text-primary,
+    checkbox-checked-icon-color: $color-white,
 
     checkbox-input-border-color-hover: $dark-border-color-hover,
 
@@ -527,7 +528,7 @@ $themes: (
     notification-shadow: $dark-box-shadow-light,
     notification-border-color: $dark-border-color-base,
     notification-color: $dark-color-text-primary,
-    notification-background-color: #333,
+    notification-background-color: $dark-fill-base,
     notification-title-color: $dark-color-text-primary,
 
     notification-close-color: rgba($dark-color-text-primary, .4),
@@ -589,6 +590,7 @@ $themes: (
     button-default-border: $dark-color-text-primary,
 
     button-disabled-color: $dark-color-text-placeholder,
+    button-disabled-color-hover: $color-black,
     button-disabled-fill: $dark-background-color,
     button-disabled-border: $dark-color-text-placeholder,
 
@@ -675,7 +677,7 @@ $themes: (
 
     dropdown-menu-box-shadow: $dark-box-shadow-light,
     dropdown-menuItem-hover-fill: $dark-link-color,
-    dropdown-menuItem-hover-color: $dark-color-text-primary,
+    dropdown-menuItem-hover-color: $color-white,
 
     badge-fill: $dark-color-danger,
 
