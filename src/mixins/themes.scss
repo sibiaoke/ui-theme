@@ -329,7 +329,7 @@ $themes: (
     slider-disable-color: $light-color-text-placeholder,
 
     menu-item-color: rgba($light-color-text-primary, .8),
-    menu-item-fill: $light-background-color,
+    menu-item-fill: transparent,
     menu-item-hover-fill: $light-color-text-primary,
 
     rate-icon-color: $light-color-text-placeholder,
@@ -690,7 +690,7 @@ $themes: (
     slider-disable-color: $dark-color-text-placeholder,
 
     menu-item-color: rgba($dark-color-text-primary, .8),
-    menu-item-fill: $dark-background-color,
+    menu-item-fill: transparent,
     menu-item-hover-fill: $dark-color-text-primary,
 
     rate-icon-color: $dark-color-text-placeholder,
