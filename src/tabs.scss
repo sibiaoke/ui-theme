@@ -12,14 +12,16 @@
     bottom: 0;
     left: 0;
     height: 2px;
-    background-color: $--color-primary;
     z-index: 1;
     transition: transform .3s cubic-bezier(.645,.045,.355,1);
     list-style: none;
+
+    @include themify($themes) {
+      background-color: themed('color-primary');
+    }
   }
   @include e(new-tab) {
     float: right;
-    border: 1px solid #d3dce6;
     height: 18px;
     width: 18px;
     line-height: 18px;
@@ -27,16 +29,22 @@
     border-radius: 3px;
     text-align: center;
     font-size: 12px;
-    color: #d3dce6;
     cursor: pointer;
     transition: all .15s;
+
+    @include themify($themes) {
+      border: themed('border-base');
+      color: rgba(themed('color-text-primary'), .7);
+    }
 
     .el-icon-plus {
       transform: scale(0.8, 0.8);
     }
 
     &:hover {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
     }
   }
   @include e(nav-wrap) {
@@ -44,16 +52,16 @@
     margin-bottom: -1px;
     position: relative;
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background-color: $--border-color-light;
-      z-index: $--index-normal;
-    }
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0;
+    //   width: 100%;
+    //   height: 2px;
+    //   background-color: $--border-color-light;
+    //   z-index: $--index-normal;
+    // }
 
     @include when(scrollable) {
       padding: 0 20px;
@@ -68,7 +76,15 @@
     cursor: pointer;
     line-height: 44px;
     font-size: 12px;
-    color: $--color-text-secondary;
+    @include themify($themes) {
+      color: rgba(themed('color-text-primary'), 0.4);
+    }
+
+    &:hover {
+      @include themify($themes) {
+        color: themed('color-text-primary')
+      }
+    }
   }
   @include e(nav-next) {
     right: 0;
@@ -101,15 +117,19 @@
     list-style: none;
     font-size: 14px;
     font-weight: 500;
-    color: $--color-text-primary;
     position: relative;
+    @include themify($themes) {
+      color: rgba(themed('color-text-primary'), .8);
+    }
 
     &:focus, &:focus:active {
       outline: none;
     }
 
     &:focus.is-active.is-focus:not(:active) {
-      box-shadow: 0 0 2px 2px #409eff inset;
+      @include themify($themes) {
+        box-shadow: 0 0 2px 2px themed('color-primary') inset;
+      }
       border-radius: 3px;
     }
 
@@ -124,22 +144,30 @@
       }
 
       &:hover {
-        background-color: $--color-text-placeholder;
-        color: $--color-white;
+        @include themify($themes) {
+          background-color: themed('color-text-placeholder');
+          color: themed('color-text-primary');
+        }
       }
     }
 
     @include when(active) {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
     }
 
     &:hover {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-text-primary');
+      }
       cursor: pointer;
     }
 
     @include when(disabled) {
-      color: $--disabled-color-base;
+      @include themify($themes) {
+        color: themed('disabled-color-base');
+      }
       cursor: default;
     }
   }
@@ -149,14 +177,18 @@
   }
   @include m(card) {
     > .el-tabs__header {
-      border-bottom: 1px solid $--border-color-light;
+      @include themify($themes) {
+        border-bottom: 1px solid themed('border-color-base');
+      }
     }
     > .el-tabs__header .el-tabs__nav-wrap::after {
       content: none;
     }
     > .el-tabs__header .el-tabs__nav {
-      border: 1px solid $--border-color-light;
-      border-bottom: none;
+      @include themify($themes) {
+        border: 1px solid themed('border-color-base');
+        border-bottom: none;
+      }
       border-radius: 4px 4px 0 0;
       box-sizing: border-box;
     }
@@ -176,11 +208,15 @@
       transform-origin: 100% 50%;
     }
     > .el-tabs__header .el-tabs__item {
-      border-bottom: 1px solid transparent;
-      border-left: 1px solid $--border-color-light;
+      @include themify($themes) {
+        border-left: 1px solid themed('border-color-base');
+        border-bottom: 1px solid transparent;
+      }
       transition: color .3s cubic-bezier(.645,.045,.355,1), padding .3s cubic-bezier(.645,.045,.355,1);
       &:first-child {
-        border-left: none;
+        @include themify($themes) {
+          border-left: none;
+        }
       }
       &.is-closable {
         &:hover {
@@ -193,7 +229,9 @@
         }
       }
       &.is-active {
-        border-bottom-color: $--color-white;
+        @include themify($themes) {
+          border-bottom-color: themed('background-color');
+        }
 
         &.is-closable {
           padding-left: 20px;
@@ -207,16 +245,20 @@
     }
   }
   @include m(border-card) {
-    background: $--color-white;
-    border: 1px solid $--border-color-base;
+    @include themify($themes) {
+      border: 1px solid themed('border-color-base');
+      background: themed('background-color');
+    }
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12), 0 0 6px 0 rgba(0,0,0,0.04);
 
     >.el-tabs__content {
       padding: 15px;
     }
     >.el-tabs__header {
-      background-color: $--background-color-base;
-      border-bottom: 1px solid $--border-color-light;
+      @include themify($themes) {
+        border-bottom: 1px solid themed('border-color-base');
+        background-color: themed('background-color');
+      }
       margin: 0;
     }
     > .el-tabs__header .el-tabs__nav-wrap::after {
@@ -224,21 +266,29 @@
     }
     >.el-tabs__header .el-tabs__item {
       transition: all .3s cubic-bezier(.645,.045,.355,1);
-      border: 1px solid transparent;
       margin: -1px -1px 0;
-      color: $--color-text-secondary;
+      @include themify($themes) {
+        border: 1px solid transparent;
+        color: rgba(themed('color-text-primary'), 0.4);
+      }
 
       &.is-active {
-        color: $--color-primary;
-        background-color: $--color-white;
-        border-right-color: $--border-color-base;
-        border-left-color: $--border-color-base;
+        @include themify($themes) {
+          color: themed('color-primary');
+          background-color: themed('background-color');
+          border-right-color: themed('border-color-base');
+          border-left-color: themed('border-color-base');
+        }
       }
       &:not(.is-disabled):hover {
-        color: $--color-primary;
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
       }
       &.is-disabled {
-        color: $--disabled-color-base;
+        @include themify($themes) {
+          color: themed('disabled-color-base');
+        }
       }
     }
   }
@@ -269,15 +319,19 @@
     }
     &.el-tabs--border-card {
       .el-tabs__header.is-bottom {
-        border-bottom: 0;
-        border-top: 1px solid $--border-color-base;
+        @include themify($themes) {
+          border-bottom: 0;
+          border-top: 1px solid themed('border-color-base');
+        }
       }
       .el-tabs__nav-wrap.is-bottom {
         margin-top: -1px;
         margin-bottom: 0;
       }
       .el-tabs__item.is-bottom:not(.is-active) {
-        border: 1px solid transparent;
+        @include themify($themes) {
+          border: 1px solid transparent;
+        }
       }
       .el-tabs__item.is-bottom {
         margin: 0 -1px -1px -1px;
@@ -314,7 +368,7 @@
         width: 100%;
         text-align: center;
         cursor: pointer;
-  
+
         i {
           transform: rotateZ(90deg);
         }
@@ -375,20 +429,26 @@
         display: none;
       }
       .el-tabs__item.is-left {
-        border-left: none;
-        border-right: 1px solid $--border-color-light;
-        border-bottom: none;
-        border-top: 1px solid $--border-color-light;
+        @include themify($themes) {
+          border-left: none;
+          border-right: 1px solid themed('border-color-base');
+          border-bottom: none;
+          border-top: 1px solid themed('border-color-base');
+        }
       }
       .el-tabs__item.is-left:first-child {
-        border-right: 1px solid $--border-color-light;
-        border-top: none;
+        @include themify($themes) {
+          border-right: 1px solid themed('border-color-base');
+          border-top: none;
+        }
       }
       .el-tabs__item.is-left.is-active {
-        border: 1px solid $--border-color-light;
-        border-right-color: #fff;
-        border-left: none;
-        border-bottom: none;
+        @include themify($themes) {
+          border: 1px solid themed('border-color-base');
+          border-right-color: transparent;
+          border-left: none;
+          border-bottom: none;
+        }
 
         &:first-child {
           border-top: none;
@@ -400,8 +460,10 @@
 
       .el-tabs__nav {
         border-radius: 4px 0 0 4px;
-        border-bottom: 1px solid $--border-color-light;
-        border-right: none;
+        @include themify($themes) {
+          border-right: none;
+          border-bottom: 1px solid themed('border-color-base');
+        }
       }
 
       .el-tabs__new-tab {
@@ -411,16 +473,22 @@
 
     &.el-tabs--border-card {
       .el-tabs__header.is-left {
-        border-right: 1px solid #dfe4ed;
+        @include themify($themes) {
+          border-right: 1px solid themed('border-color-base');
+        }
       }
       .el-tabs__item.is-left {
-        border: 1px solid transparent;
+        @include themify($themes) {
+          border: 1px solid transparent;
+        }
         margin: -1px 0 -1px -1px;
 
         &.is-active {
-          border-color: transparent;
-          border-top-color: rgb(209, 219, 229);
-          border-bottom-color: rgb(209, 219, 229);
+          @include themify($themes) {
+            border-color: transparent;
+            border-top-color: themed('border-color-base');
+            border-bottom-color: themed('border-color-base');
+          }
         }
       }
     }
@@ -428,8 +496,10 @@
   @include m(right) {
     .el-tabs__header.is-right {
       float: right;
-      margin-bottom: 0;
       margin-left: 10px;
+      @include themify($themes) {
+        margin-bottom: 0;
+      }
     }
 
     .el-tabs__nav-wrap.is-right {
@@ -449,45 +519,63 @@
         display: none;
       }
       .el-tabs__item.is-right {
-        border-bottom: none;
-        border-top: 1px solid $--border-color-light;
+        @include themify($themes) {
+          border-top: 1px solid themed('border-color-base');
+          border-bottom: none;
+        }
       }
       .el-tabs__item.is-right:first-child {
-        border-left: 1px solid $--border-color-light;
-        border-top: none;
+        @include themify($themes) {
+          border-top: none;
+          border-left: 1px solid themed('border-color-base');
+        }
       }
       .el-tabs__item.is-right.is-active {
-        border: 1px solid $--border-color-light;
-        border-left-color: #fff;
-        border-right: none;
-        border-bottom: none;
+        @include themify($themes) {
+          border: 1px solid themed('border-color-base');
+          border-left-color: transparent;
+          border-right: none;
+          border-bottom: none;
+        }
 
         &:first-child {
-          border-top: none;
+          @include themify($themes) {
+            border-top: none;
+          }
         }
         &:last-child {
-          border-bottom: none;
+          @include themify($themes) {
+            border-bottom: none;
+          }
         }
       }
 
       .el-tabs__nav {
         border-radius: 0 4px 4px 0;
-        border-bottom: 1px solid $--border-color-light;
-        border-left: none;
+        @include themify($themes) {
+          border-bottom: 1px solid themed('border-color-base');
+          border-left: none;
+        }
       }
     }
     &.el-tabs--border-card {
       .el-tabs__header.is-right {
-        border-left: 1px solid #dfe4ed;
+        @include themify($themes) {
+          border-left: 1px solid themed('border-color-base');
+        }
       }
       .el-tabs__item.is-right {
-        border: 1px solid transparent;
+        @include themify($themes) {
+          border: 1px solid transparent;
+        }
         margin: -1px -1px -1px 0;
 
         &.is-active {
-          border-color: transparent;
-          border-top-color: rgb(209, 219, 229);
-          border-bottom-color: rgb(209, 219, 229);
+          @include themify($themes) {
+            border-color: transparent;
+            border-top-color: themed('border-color-base');
+            border-bottom-color: themed('border-color-base');
+          }
         }
       }
     }

@@ -13,10 +13,12 @@
 }
 
 @include b(table-filter) {
-  border: solid 1px $--border-color-lighter;
+  @include themify($themes) {
+    border: solid 1px themed('border-color-base');
+    background-color: themed('background-color');
+    box-shadow: themed('dropdown-menu-box-shadow');
+  }
   border-radius: 2px;
-  background-color: $--color-white;
-  box-shadow: $--dropdown-menu-box-shadow;
   box-sizing: border-box;
   margin: 2px 0;
 
@@ -35,13 +37,17 @@
     font-size: $--font-size-base;
 
     &:hover {
-      background-color: $--dropdown-menuItem-hover-fill;
-      color: $--dropdown-menuItem-hover-color;
+      @include themify($themes) {
+        background-color: themed('dropdown-menuItem-hover-fill');
+        color: themed('dropdown-menuItem-hover-color');
+      }
     }
 
     @include when(active) {
-      background-color: $--color-primary;
-      color: $--color-white;
+      @include themify($themes) {
+        background-color: themed('color-primary');
+        color: themed('color-text-primary');
+      }
     }
   }
 
@@ -50,19 +56,26 @@
   }
 
   @include e(bottom) {
-    border-top: 1px solid $--border-color-lighter;
+    @include themify($themes) {
+      border-top: 1px solid themed('border-color-base');
+    }
     padding: 8px;
 
     button {
-      background: transparent;
-      border: none;
-      color: $--color-text-regular;
       cursor: pointer;
       font-size: $--font-size-small;
       padding: 0 3px;
 
+      @include themify($themes) {
+        background: transparent;
+        border: none;
+        color: themed('color-text-regular');
+      }
+
       &:hover {
-        color: $--color-primary;
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
       }
 
       &:focus {
@@ -70,7 +83,9 @@
       }
 
       &.is-disabled {
-        color: $--disabled-color-base;
+        @include themify($themes) {
+          color: themed('disabled-color-base');
+        }
         cursor: not-allowed;
       }
     }
