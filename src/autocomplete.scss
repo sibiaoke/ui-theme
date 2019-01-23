@@ -12,18 +12,24 @@
 
 @include b(autocomplete-suggestion) {
   margin: 5px 0;
-  box-shadow: $--box-shadow-light;
   border-radius: $--border-radius-base;
-  border: 1px solid $--border-color-light;
   overflow: hidden;
   box-sizing: border-box;
+
+  @include themify($themes) {
+    border: themed('select-dropdown-border');
+    background-color: themed('select-dropdown-background');
+    box-shadow: themed('select-dropdown-shadow');
+  }
 
   @include e(wrap) {
     max-height: 280px;
     padding: 10px 0;
     box-sizing: border-box;
     overflow: auto;
-    background-color: $--color-white;
+    @include themify($themes) {
+      background-color: themed('select-dropdown-background');
+    }
   }
 
   @include e(list) {
@@ -36,15 +42,20 @@
     margin: 0;
     line-height: 34px;
     cursor: pointer;
-    color: $--color-text-regular;
     font-size: $--font-size-base;
     list-style: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    @include themify($themes) {
+      color: themed('color-text-primary');
+    }
 
     &:hover {
-      background-color: $--select-option-hover-background;
+      @include themify($themes) {
+        color: themed('dropdown-menuItem-hover-color');
+        background-color: themed('select-option-hover-background');
+      }
     }
 
     &.highlighted {

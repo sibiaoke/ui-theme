@@ -10,7 +10,9 @@
   @include e(separator) {
     margin: 0 9px;
     font-weight: bold;
-    color: $--color-text-placeholder;
+    @include themify($themes) {
+      color: themed('color-text-secondary');
+    }
 
     &[class*=icon] {
       margin: 0 6px;
@@ -22,16 +24,22 @@
     float: left;
 
     @include e(inner) {
-      color: $--color-text-regular;
+      @include themify($themes) {
+        color: themed('color-text-regular');
+      }
 
       &.is-link, & a {
         font-weight: bold;
         text-decoration: none;
         transition: $--color-transition-base;
-        color: $--color-text-primary;
+        @include themify($themes) {
+          color: themed('color-text-primary');
+        }
 
         &:hover {
-          color: $--color-primary;
+          @include themify($themes) {
+            color: themed('color-primary');
+          }
           cursor: pointer;
         }
       }
@@ -42,7 +50,9 @@
       .el-breadcrumb__inner a {
         &, &:hover {
           font-weight: normal;
-          color: $--color-text-regular;
+          @include themify($themes) {
+            color: themed('color-text-regular');
+          }
           cursor: text;
         }
       }
