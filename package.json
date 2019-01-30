@@ -1,6 +1,6 @@
 {
   "name": "@sibiaoke/ui-theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Element component theme --- light and dark.",
   "main": "lib/index.css",
   "style": "lib/index.css",
