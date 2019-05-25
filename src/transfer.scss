@@ -7,7 +7,9 @@
 @import "checkbox-group";
 
 @include b(transfer) {
-  font-size: $--font-size-base;
+  @include themify($themes) {
+    font-size: themed('font-size-base');
+  }
 
   @include e(buttons) {
     display: inline-block;
@@ -20,23 +22,33 @@
     margin: 0 auto;
     padding: 10px;
     border-radius: 50%;
-    color: $--color-white;
-    background-color: $--color-primary;
     font-size: 0;
 
+    @include themify($themes) {
+      background-color: themed('color-primary');
+      color: themed('text-color-primary');
+    }
+
     @include when(with-texts) {
-      border-radius: $--border-radius-base;
+      @include themify($themes) {
+        border-radius: themed('border-radius-base');
+      }
     }
 
     @include when(disabled) {
-      border: $--border-base;
-      background-color: $--background-color-base;
-      color: $--color-text-placeholder;
+
+      @include themify($themes) {
+        border: themed('border-base');
+        background-color: themed('background-color');
+        color: themed('color-text-placeholder');
+      }
 
       &:hover {
-        border: $--border-base;
-        background-color: $--background-color-base;
-        color: $--color-text-placeholder;
+        @include themify($themes) {
+          border: themed('border-base');
+          background-color: themed('background-color');
+          color: themed('color-text-placeholder');
+        }
       }
     }
 
@@ -59,16 +71,19 @@
 }
 
 @include b(transfer-panel) {
-  border: 1px solid $--transfer-border-color;
   border-radius: $--transfer-border-radius;
   overflow: hidden;
-  background: $--color-white;
   display: inline-block;
   vertical-align: middle;
   width: $--transfer-panel-width;
   max-height: 100%;
   box-sizing: border-box;
   position: relative;
+
+  @include themify($themes) {
+    border: 1px solid themed('border-color-base');
+    background-color: themed('background-color');
+  }
 
   @include e(body) {
     height: $--transfer-panel-body-height;
@@ -103,11 +118,15 @@
     }
 
     &.el-checkbox {
-      color: $--color-text-regular;
+      @include themify($themes) {
+        color: themed('color-text-regular');
+      }
     }
 
     &:hover {
-      color: $--color-primary;
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
     }
 
     &.el-checkbox .el-checkbox__label {
@@ -155,12 +174,15 @@
   .el-transfer-panel__header {
     height: $--transfer-panel-header-height;
     line-height: $--transfer-panel-header-height;
-    background: $--transfer-panel-header-background;
     margin: 0;
     padding-left: 15px;
-    border-bottom: 1px solid $--transfer-border-color;
     box-sizing: border-box;
-    color: $--color-black;
+
+    @include themify($themes) {
+      border-bottom: 1px solid themed('border-color-base');
+      background: themed('transfer-panel-header-background');
+      color: themed('color-text-primary');
+    }
 
     .el-checkbox {
       display: block;
@@ -168,15 +190,21 @@
 
       .el-checkbox__label {
         font-size: 16px;
-        color: $--color-text-primary;
         font-weight: normal;
+
+        @include themify($themes) {
+          color: themed('color-text-primary');
+        }
 
         span {
           position: absolute;
           right: 15px;
-          color: $--color-text-secondary;
           font-size: 12px;
           font-weight: normal;
+
+          @include themify($themes) {
+            color: themed('color-text-secondary');
+          }
         }
       }
     }
@@ -184,10 +212,8 @@
 
   .el-transfer-panel__footer {
     height: $--transfer-panel-footer-height;
-    background: $--color-white;
     margin: 0;
     padding: 0;
-    border-top: 1px solid $--transfer-border-color;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -195,9 +221,16 @@
     z-index: $--index-normal;
     @include utils-vertical-center;
 
+    @include themify($themes) {
+      border-top: 1px solid themed('border-color-base');
+      background: themed('background-color');
+    }
+
     .el-checkbox {
       padding-left: 20px;
-      color: $--color-text-regular;
+      @include themify($themes) {
+        color: themed('color-text-regular');
+      }
     }
   }
 
@@ -206,8 +239,10 @@
     height: $--transfer-item-height;
     line-height: $--transfer-item-height;
     padding: 6px 15px 0;
-    color: $--color-text-secondary;
     text-align: center;
+    @include themify($themes) {
+      color: themed('color-text-secondary');
+    }
   }
 
   .el-checkbox__label {
